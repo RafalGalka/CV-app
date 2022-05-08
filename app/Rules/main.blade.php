@@ -7,8 +7,39 @@
         Witaj: {{ $user->name }}
     </div>
 
+    <button name="Aaa" value="Aaa" onclick="alert('Kliknięto link strony głównej!')">Baton :)</button>
+
     <form action="{{ route('protocols.newNumber') }}" method="post" enctype="multipart/form-data">
         @csrf
+
+        <div class="form-group col-md-3">
+            <label for="client_name">Zleceniodawca</label>
+            <select class="form-control @error('client_name') is-invalid @enderror" id="client_name" name="client_name">
+                <option value=""> --wybierz-- </option>
+                @foreach ($client as $row)
+                    <option value={{ $row->id }}>{{ $row->short_name }}</option>
+                @endforeach
+            </select>
+            @error('client_name')
+                <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+        </div>
+
+
+
+        <div class="form-group col-md-3">
+            <label for="investment_name">Inwestycja</label>
+            <select class="form-control @error('investment_name') is-invalid @enderror" id="investment_name"
+                name="investment_name">
+                <option value=""> --wybierz-- </option>
+                @foreach ($invest as $row)
+                    <option value={{ $row->id }}>{{ $row->short_name }}</option>
+                @endforeach )
+            </select>
+            @error('investment_name')
+                <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+        </div>
 
         <div class="btn-group">
             <button class=" btn mb-6" type="submit" value="PO" name="name">

@@ -26,14 +26,15 @@ class NewNumberController extends Controller
 
         $protocolNumber->save();
 
-        if ($request->name === "PO") {
-            return redirect()->route('protocols.protocolFPPOB')->with(['cl_id' => $request->client_name]);
+        $name = $request->name;
+        if ($name === "PO") {
+            return redirect()->route('protocols.protocolFPPOB');
         } elseif ($request->name === "OD") {
             return redirect()->route('protocols.protocolFPODB');
         } elseif ($request->name === "ZS") {
-            return redirect()->route('protocols.protocolOther');
-        } elseif ($request->name === "Ot") {
             return redirect()->route('protocols.protocolFPZS');
+        } elseif ($request->name === "Ot") {
+            return redirect()->route('protocols.protocolOther');
         } else dd("błąd");
     }
 }

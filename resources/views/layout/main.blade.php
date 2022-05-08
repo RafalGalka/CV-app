@@ -9,6 +9,7 @@
     <meta name="description" content="" />
 
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+    @livewireStyles
 </head>
 
 <body class="sb-nav-fixed">
@@ -102,6 +103,7 @@
         </div>
     @endauth
     <script src="{{ mix('/js/app.js') }}"></script>
+    @livewireScripts
 </body>
 
 </html>

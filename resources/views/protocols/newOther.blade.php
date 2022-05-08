@@ -56,38 +56,7 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="client_name">Zleceniodawca</label>
-                            <select class="form-control @error('client_name') is-invalid @enderror" id="client_name"
-                                name="client_name">
-                                <option value=""> --wybierz-- </option>
-                                @foreach ($client as $row)
-                                    <option value="$row->client_id">{{ $row->short_name }}</option>
-                                @endforeach
-                            </select>
-                            @error('clientName')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="invest_id">Inwestycja</label>
-                            <select class="form-control @error('invest_id') is-invalid @enderror" id="invest_id"
-                                name="invest_id">
-                                <option value=""> --wybierz-- </option>
-                                @foreach ($invest as $row)
-                                    <option value={{ $row->id }}>{{ $row->short_name }}</option>
-                                @endforeach
-                            </select>
-                            @error('invest_id')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
-                            </select>
-                        </div>
-                        @error('invest_id')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
-                    </div>
+                    <livewire:show-invest />
 
                     <div class="form-row">
                         <div class="form-group col-md-3">
