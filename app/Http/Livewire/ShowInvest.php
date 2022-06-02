@@ -13,14 +13,18 @@ class ShowInvest extends Component
     public $invests = [];
     public $recipes = [];
     public $dataRecipe;
+    public $prot;
 
     public $selectedClient = null;
     public $selectedInvest = null;
     public $selectedRecipe = null;
 
-    public function mount()
+    protected $changeWateproof = null;
+
+    public function mount($prot)
     {
         //dd(session());
+        $this->prot = $prot;
         $this->clients = Client::where('activ', true)->orderBy('short_name')->get();
         $this->recipes = Recipe::where('activ', true)->orderBy('recipe_number')->get();
     }

@@ -9,9 +9,9 @@
 
     <form action="{{ route('protocols.newNumber') }}" method="post" enctype="multipart/form-data">
         @csrf
-
-        <div class="btn-group">
-            <button class=" btn mb-6" type="submit" value="PO" name="name">
+        <div class="row mt-3">
+        <div class="row-x row-xl-3 row-md-3 mb-4">
+            <button class="btn mb-6" type="submit" value="PO" name="name">
                 <div class="card border-left shadow-sm py-2 h-100">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -45,7 +45,7 @@
             </button>
         </div>
 
-        <div class="btn-group">
+        <div class="row-x row-xl-3 row-md-3 mb-4">
             <button class="btn mb-6" type="submit" name="name" value="ZS">
                 <div class="card border-left-primary shadow-sm py-2 h-100">
                     <div class="card-body">
@@ -79,4 +79,5 @@
             </button>
 
         </div>
+    </div>
     @endsection

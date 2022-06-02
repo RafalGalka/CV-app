@@ -18,7 +18,11 @@
             <li>Nazwa skrócona: {{ $investID->short_name }}</li>
             <li>Szczegóły pobierania: {{ $investID->detail_picking }}</li>
             <li>Komentarz: {{ $investID->comment }}</li>
-            <li>Aktywna: {{ $investID->activ }}</li>
+            <li>Aktywna: @if ($investID->activ == 1)
+                TAK
+            @else
+                NIE
+            @endif</li>
             </ul>
             <a href="{{ $investID->id }}/edit" class="btn btn-light">Edytuj inwestycję</a>
             <a href="{{ route('tables.invest') }}" class="btn btn-light">Powrót do inwestycji</a>

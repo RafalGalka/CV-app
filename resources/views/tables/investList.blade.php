@@ -45,7 +45,12 @@
                                 <td>{{ $invest->id }}</td>
                                 <td>{{ $invest->client->short_name }}</td>
                                 <td>{{ $invest->short_name }}</td>
-                                <td>{{ $invest->activ }}</td>
+                                <td>@if ($invest->activ == 1)
+                                        TAK
+                                    @else
+                                        NIE
+                                    @endif
+                                </td>
                                 <td><a href="invest/{{ $invest->id }}">szczegóły</td>
                             </tr>
                         @endforeach

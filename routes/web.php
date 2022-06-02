@@ -174,6 +174,31 @@ Route::middleware(['auth'])->group(function () {
         Route::post('rec/{recipeID?}/update', 'RecipeController@recipeUpdate')
             ->name('recipeUpdate');
     });
+
+    //LIST
+    Route::group([
+        'prefix' => 'lists',
+        'namespace' => 'List',
+        'as' => 'lists.'
+    ], function () {
+        Route::get('myList', 'ListController@myList')
+            ->name('myList');
+
+        Route::get('POB/{pobID}', 'ListController@POBShow')
+            ->name('POBShow');
+
+        Route::get('POBList', 'ListController@POBList')
+            ->name('POBList');
+
+        Route::get('ODBList', 'ListController@ODBList')
+            ->name('ODBList');
+
+        Route::get('ZSList', 'ListController@ZSList')
+            ->name('ZSList');
+
+        Route::get('OtList', 'ListController@OtList')
+            ->name('OtList');
+    });
 });
 
 Auth::routes();

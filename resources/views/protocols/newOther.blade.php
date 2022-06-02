@@ -56,7 +56,7 @@
                         </div>
                     </div>
 
-                    <livewire:show-invest />
+                    <livewire:show-invest :prot="$prot"/>
 
                     <div class="form-row">
                         <div class="form-group col-md-3">

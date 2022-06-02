@@ -17,7 +17,11 @@
             <li>Nazwa skrócona: {{ $clientID->short_name }}</li>
             <li>Adres: {{ $clientID->address }}</li>
             <li>Komentarz: {{ $clientID->comment }}</li>
-            <li>Aktywna: {{ $clientID->activ }}</li>
+            <li>Aktywna: @if ($clientID->activ == 1)
+                TAK
+            @else
+                NIE
+            @endif</li>
             </ul>
             <a href="{{ $clientID->id }}/edit" class="btn btn-light">Edytuj inwestycję</a>
             <a href="{{ route('tables.client') }}" class="btn btn-light">Powrót do listy Zleceniodawców</a>

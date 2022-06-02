@@ -12,11 +12,8 @@
         <h5 class="card-header"></h5>Dodawnie nowego Zleceniodawcy</h5>
     </div>
 
-
     <div class="card mt-3">
-
         <div class="card-body">
-
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -31,7 +28,6 @@
                 @csrf
 
                 <div class="form-group">
-
                     <label for="short_name">Nazwa skrótowa</label>
                     <input type="text" class="form-control @error('short_name') is-invalid @enderror" id="short_name"
                         name="short_name" />
@@ -44,8 +40,8 @@
                     @error('name')
                         <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
-
                 </div>
+
                 <div class="form-group">
                     <label for="address">Adres</label>
                     <input type="text" class="form-control @error('address') is-invalid @enderror" id="address"
@@ -54,6 +50,7 @@
                         <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
                 </div>
+
                 <div class="form-group">
                     <label for="comment">Komentarz</label>
                     <input type="text" class="form-control @error('comment') is-invalid @enderror" id="comment"
@@ -62,6 +59,7 @@
                         <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
                 </div>
+
                 <div class="form-group">
                     <label for="activ">Aktywna</label>
                     <select class="form-control input-sm @error('activ') is-invalid @enderror" name="activ">
@@ -72,6 +70,7 @@
                         <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
                 </div>
+
                 <button type="submit" class="btn btn-primary">Zapisz dane</button>
                 <a href="{{ route('tables.client') }}" class="btn btn-secondary">Anuluj</a>
             </form>

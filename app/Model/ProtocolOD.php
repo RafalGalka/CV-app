@@ -12,7 +12,7 @@ class ProtocolOD extends Model
 
     public function protocolNumber()
     {
-        return $this->hasOne(ProtocolNumber::class);
+        return $this->hasOne(ProtocolNumber::class, 'protocol_number', 'protocol_number');
     }
 
     public function invest()

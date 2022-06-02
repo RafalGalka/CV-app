@@ -63,15 +63,13 @@
                         </div>
                     </div>
 
-                    <livewire:show-invest />
+                    <livewire:show-invest :prot="$prot"/>
 
                     <div class="form-row">
                         <div class="form-group col-md-3">
                             <label for="recipe">Receptura</label>
-
                             <input type="text" class="form-control @error('recipe') is-invalid @enderror" id="recipe"
                                 name="recipe" />
-
                         </div>
                         @error('recipe')
                             <div class="invalid-feedback d-block">{{ $message }}</div>

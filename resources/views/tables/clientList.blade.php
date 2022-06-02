@@ -35,7 +35,12 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $client->short_name }}</td>
-                                <td>{{ $client->activ }}</td>
+                                <td>@if ($client->activ == 1)
+                                    TAK
+                                @else
+                                    NIE
+                                @endif
+                            </td>
                                 <td>
                                     <a href="client/{{ $client->id }}">Szczegóły
                                 </td>

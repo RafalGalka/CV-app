@@ -28,8 +28,9 @@ class PZSController extends Controller
         $invest = Invest::where('activ', true)->orderBy('short_name')->get();
         $classB = StrenghtClass::where('activ', true)->where('material_types', 'podkład-zginanie')->orderBy('short_name')->get();
         $classC = StrenghtClass::where('activ', true)->where('material_types', 'podkład-ściskanie')->orWhere('material_types', 'zaprawa')->where('activ', true)->orderBy('short_name')->get();
+        $prot = "ZS";
 
-        return view('protocols.newPZS', ['user' => $user, 'newProtocol' => $newProtocol, 'today' => $today, 'protocolNumber' => $protocolNumber, 'nrProt' => $nrProt, 'client' => $client, 'invest' => $invest, 'classB' => $classB, 'classC' => $classC]);
+        return view('protocols.newPZS', ['user' => $user, 'newProtocol' => $newProtocol, 'today' => $today, 'protocolNumber' => $protocolNumber, 'nrProt' => $nrProt, 'client' => $client, 'invest' => $invest, 'classB' => $classB, 'classC' => $classC, 'prot' => $prot]);
     }
 
     public function newZS(Request $request)

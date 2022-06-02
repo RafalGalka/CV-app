@@ -59,7 +59,7 @@
                         @enderror
                     </div>
 
-                    <livewire:show-invest />
+                    <livewire:show-invest :prot="$prot"/>
 
                     <div class="form-row">
                         <div class="form-group col-md-2">
@@ -78,10 +78,10 @@
                     @enderror
 
                     <div class="form-group">
-                        <label for="elements">Elementy</label>
-                        <textarea class="form-control @error('elements') is-invalid @enderror" id="elements" name="elements"
+                        <label for="element">Elementy</label>
+                        <textarea class="form-control @error('element') is-invalid @enderror" id="element" name="element"
                             rows="6"> </textarea>
-                        @error('elements')
+                        @error('element')
                             <div class=" invalid-feedback d-block">{{ $message }}
                             </div>
                         @enderror
@@ -104,7 +104,6 @@
                             @error('days_56')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
-
                         </div>
 
                         <div class="form-group col-sd-2">
@@ -114,10 +113,8 @@
                             @error('days_7')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
-
                         </div>
                     </div>
-
 
                 <div class="form-row">
                     <div class="form-group col-sd-2">
@@ -130,31 +127,20 @@
                     </div>
 
                     <div class="form-group col-sd-2">
-                        <label for="volume_W">Próbki na Wxx</label>
+                        <label for="volume_W">Próbki na Wxx </label>
                         <input type="number" class="form-control @error('volume_W') is-invalid @enderror" id="volume_W"
                             name="volume_W" />
                         @error('volume_W')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
-
-                    </div>
-
-                    <div class="form-group col-sd-2">
-                        <label for="waterproof">Klasa wodoszczelności</label>
-                        <input type="text" class="form-control @error('waterproof') is-invalid @enderror" id="waterproof"
-                            name="waterproof" readonly />
-                        @error('waterproof')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
-
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="reaserch_type_A">Rodzaj badania A</label>
-                        <select class="form-control @error('reaserch_type_A') is-invalid @enderror" id="reaserch_type_A"
-                            name="reaserch_type_A" aria-label=".form-select-lg example">
+                        <label for="type_A">Rodzaj badania A</label>
+                        <select class="form-control @error('type_A') is-invalid @enderror" id="type_A"
+                            name="type_A" aria-label=".form-select-lg example">
                             <option value="" selected></option>
                             <option value="1">Ściskanie</option>
                             <option value="2">Wodoszczelność</option>
@@ -162,6 +148,7 @@
                             <option value="4">Nasiąkliwość</option>
                         </select>
                     </div>
+
                     <div class="form-group col-md-3">
                         <label for="day_A">Dni do badania A</label>
                         <input type="number" class="form-control @error('day_A') is-invalid @enderror" id="day_A"
@@ -170,6 +157,7 @@
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="form-group col-md-2">
                         <label for="volume_A">Ilość A</label>
                         <input type="number" class="form-control @error('volume_A') is-invalid @enderror" id="volume_A"
@@ -182,9 +170,9 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="reaserch_type_B">Rodzaj badania B</label>
-                        <select class="form-control @error('reaserch_type_B') is-invalid @enderror" id="reaserch_type_B"
-                            name="reaserch_type_B" aria-label=".form-select-lg example">
+                        <label for="type_B">Rodzaj badania B</label>
+                        <select class="form-control @error('type_B') is-invalid @enderror" id="type_B"
+                            name="type_B" aria-label=".form-select-lg example">
                             <option value="" selected></option>
                             <option value="1">Ściskanie</option>
                             <option value="2">Wodoszczelność</option>
@@ -192,6 +180,7 @@
                             <option value="4">Nasiąkliwość</option>
                         </select>
                     </div>
+
                     <div class="form-group col-md-3">
                         <label for="day_B">Dni do badania B</label>
                         <input type="number" class="form-control @error('day_B') is-invalid @enderror" id="day_B"
@@ -200,6 +189,7 @@
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="form-group col-md-2">
                         <label for="volume_B">Ilość B</label>
                         <input type="number" class="form-control @error('volume_B') is-invalid @enderror" id="volume_B"
@@ -209,11 +199,12 @@
                         @enderror
                     </div>
                 </div>
+
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="reaserch_type_C">Rodzaj badania C</label>
-                        <select class="form-control @error('reaserch_type_C') is-invalid @enderror" id="reaserch_type_C"
-                            name="reaserch_type_C" aria-label=".form-select-lg example">
+                        <label for="type_C">Rodzaj badania C</label>
+                        <select class="form-control @error('type_C') is-invalid @enderror" id="type_C"
+                            name="type_C" aria-label=".form-select-lg example">
                             <option value="" selected></option>
                             <option value="1">Ściskanie</option>
                             <option value="2">Wodoszczelność</option>
@@ -221,6 +212,7 @@
                             <option value="4">Nasiąkliwość</option>
                         </select>
                     </div>
+
                     <div class="form-group col-md-3">
                         <label for="day_C">Dni do badania C</label>
                         <input type="number" class="form-control @error('day_C') is-invalid @enderror" id="day_C"
@@ -229,6 +221,7 @@
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="form-group col-md-2">
                         <label for="volume_C">Ilość C</label>
                         <input type="number" class="form-control @error('volume_C') is-invalid @enderror" id="volume_C"
@@ -238,6 +231,7 @@
                         @enderror
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="my_comment">Uwagi/opis</label>
                     <input type="text" class="form-control @error('my_comment') is-invalid @enderror" id="my_comment"
@@ -247,7 +241,6 @@
                         </div>
                     @enderror
                 </div>
-
 
                 <div class="form-row">
                     <div class="form-group col-sd-4">
@@ -260,6 +253,7 @@
                         @enderror
 
                     </div>
+
                     <div class="form-group col-sd-4">
                         <label for="user_id">Zakceptował</label>
 
@@ -279,7 +273,6 @@
                         <div class=" invalid-feedback d-block">{{ $message }}
                         </div>
                     @enderror
-
                 </div>
             </div>
         </div>

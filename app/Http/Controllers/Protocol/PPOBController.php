@@ -26,9 +26,9 @@ class PPOBController extends Controller
         //$id_client = session()->get('cl_id');
         $client = Client::where('activ', true)->orderBy('short_name')->get();
         $invest = Invest::where('activ', true)->orderBy('short_name')->get();
-        $nameRecipe = 1;
+        $prot = "PO";
 
-        return view('protocols.newPPOB', ['user' => $user, 'newProtocol' => $newProtocol, 'today' => $today, 'protocolNumber' => $protocolNumber, 'nrProt' => $nrProt, 'client' => $client, 'invest' => $invest, 'nameRecipe' => $nameRecipe]);
+        return view('protocols.newPPOB', ['user' => $user, 'newProtocol' => $newProtocol, 'today' => $today, 'protocolNumber' => $protocolNumber, 'nrProt' => $nrProt, 'client' => $client, 'invest' => $invest, 'prot' => $prot]);
     }
 
     /*  public function showPPOB(int $id)
