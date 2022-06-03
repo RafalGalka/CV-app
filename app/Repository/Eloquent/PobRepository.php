@@ -25,7 +25,6 @@ class PobRepository implements PobRepositoryInterface
     {
         return $this->protocolPOBModel
             ->with('clientName')
-            ->orderBy('clientName')
             ->get();
     }
 
