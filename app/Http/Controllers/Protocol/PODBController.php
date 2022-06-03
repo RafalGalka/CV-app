@@ -41,13 +41,13 @@ class PODBController extends Controller
         $protocolOD->protocol_number = $request->protocol_number;
         $protocolOD->drive = $request->drive;
         $protocolOD->date = $request->date;
-        $protocolOD->client_id = $request->client_id;
+        $protocolOD->client_id = 0;
         $protocolOD->invest_id = $request->invest_id;
         $protocolOD->number_of_sample = $request->number_of_sample;
         $protocolOD->sample_type = $request->sample_type;
         $protocolOD->collection = $request->collection;
         $protocolOD->my_comment = $request->my_comment;
-        $protocolOD->lab_id = "$user->id";
+        $protocolOD->lab_id = $user->id;
         $protocolOD->user_id = $request->user_id;
         $protocolOD->client_comment = $request->client_comment;
 

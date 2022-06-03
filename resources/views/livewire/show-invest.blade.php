@@ -2,13 +2,13 @@
 <div class="form-row">
     <div class="form-group col-md-3">
         <label for="client_id">Zleceniodawca</label>
-        <select wire:model="selectedClient" name="client_id" class="form-control @error('client_id') is-invalid @enderror">
+        <select wire:model="selectedClient" name="client_id" id="client_id" class="form-control @error('client_id') is-invalid @enderror">
             <option value=""> --wybierz-- </option>
             @foreach ($clients as $client)
                 <option value={{ $client->id }}>{{ $client->short_name }}</option>
             @endforeach
         </select>
-        @error('client_name')
+        @error('client_id')
             <div class="invalid-feedback d-block">{{ $message }}</div>
         @enderror
     </div>
@@ -24,12 +24,7 @@
         @error('invest_id')
             <div class="invalid-feedback d-block">{{ $message }}</div>
         @enderror
-        </select>
     </div>
-    @error('invest_id')
-        <div class="invalid-feedback d-block">{{ $message }}</div>
-    @enderror
-
 </div>
 
 @if ( $prot == "PO")

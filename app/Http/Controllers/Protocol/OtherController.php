@@ -41,6 +41,7 @@ class OtherController extends Controller
         $protocolOther->date = $request->date;
         $protocolOther->drive = $request->drive;
         $protocolOther->invest_id = $request->invest_id;
+        $protocolOther->client_id = 0;
         $protocolOther->test_type = $request->test_type;
         $protocolOther->my_comment = $request->my_comment;
         $protocolOther->number_of_sample = $request->number_of_sample;

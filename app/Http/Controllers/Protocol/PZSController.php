@@ -43,7 +43,7 @@ class PZSController extends Controller
         $protocolZS->drive = $request->drive;
         $protocolZS->date = $request->date;
         $protocolZS->time = $request->time;
-        $protocolZS->client_id = $request->client_id;
+        $protocolZS->client_id = 0;
         $protocolZS->invest_id = $request->invest_id;
         $protocolZS->recipe = $request->recipe;
         $protocolZS->compression_class = $request->compression_class;
@@ -55,10 +55,8 @@ class PZSController extends Controller
         $protocolZS->volume_A = $request->volume_A;
         $protocolZS->day_A = $request->day_A;
         $protocolZS->my_comment = $request->my_comment;
-        $protocolZS->lab_id = "$user->id";
+        $protocolZS->lab_id = $user->id;
         $protocolZS->collection = $request->collection;
-
-        dd($request);
 
         $protocolZS->save();
 
