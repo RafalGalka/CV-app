@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,MADE,CACF,EAAE,CAAC;EACC,MAAM,EAAE,IAAI;CACf;;AAHL,AAII,MAJE,CAIF,EAAE,CAAC;EACC,MAAM,EAAE,GAAG;CACd",
+    "sources": [
+        "../resources/sass/admin.scss"
+    ],
+    "names": [],
+    "file": "admin.css"
+}
