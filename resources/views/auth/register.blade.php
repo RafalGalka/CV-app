@@ -62,10 +62,49 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="IDCompany" class="col-md-4 col-form-label text-md-right">{{ __('Nazwa firmy') }}</label>
-
+                            <label for="IDCompany" class="col-md-4 col-form-label text-md-right">{{ __('ID firmy') }}</label>
                             <div class="col-md-6">
-                                <input id="IDCompany" type="text" class="form-control @error('IDCompany') is-invalid @enderror" name="IDCompany" value="{{ old('IDCompany') }}" required autocomplete="IDCompany" autofocus>
+                                <input id="IDCompany" type="number" class="form-control @error('IDCompany') is-invalid @enderror" name="IDCompany" value="{{ old('IDCompany') }}" required autocomplete="IDCompany" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="IDBudowy" class="col-md-4 col-form-label text-md-right">{{ __('ID budowy') }}</label>
+                            <div class="col-md-6">
+                                <input id="IDBudowy" type="number" class="form-control @error('IDBudowy') is-invalid @enderror" name="IDBudowy" value="{{ old('IDBudowy') }}" required autocomplete="IDBudowy" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="isControl" class="col-md-4 col-form-label text-md-right">{{ __('Pracownik Conrol') }}</label>
+                            <div class="col-md-6">
+                                <select class="form-control @error('isControl') is-invalid @enderror" id="isControl" name="isControl"
+                                    aria-label=".form-select-lg example">
+                                    <option selected value="0">NIE</option>
+                                    <option value="1">TAK</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="isAuth" class="col-md-4 col-form-label text-md-right">{{ __('Autoryzacja raportów') }}</label>
+                            <div class="col-md-6">
+                                <select class="form-control @error('isAuth') is-invalid @enderror" id="isAuth" name="isAuth"
+                                    aria-label=".form-select-lg example">
+                                    <option selected value="0">NIE</option>
+                                    <option value="1">TAK</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="admin" class="col-md-4 col-form-label text-md-right">{{ __('Administrator') }}</label>
+                            <div class="col-md-6">
+                                <select class="form-control @error('admin') is-invalid @enderror" id="admin" name="admin"
+                                    aria-label=".form-select-lg example">
+                                    <option selected value="0">NIE</option>
+                                    <option value="1">TAK</option>
+                                </select>
                             </div>
                         </div>
 

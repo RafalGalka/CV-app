@@ -20,7 +20,7 @@ Route::middleware(['auth'])->group(function () {
         ->name('home.mainPage');
 
     Route::put('/', 'Home\MainPage')
-        ->name('home.mainPage');
+        ->name('home.mainPageP');
 
     // USERS
     Route::get('users', 'UserController@list')
@@ -57,7 +57,7 @@ Route::middleware(['auth'])->group(function () {
             ->name('userProtocol.form');
 
         Route::put('protocol/{id}', 'UserProtocolController@update')
-            ->name('userProtocol.form');
+            ->name('userProtocol.formP');
     });
 
 
@@ -71,25 +71,25 @@ Route::middleware(['auth'])->group(function () {
             ->name('protocolFPPOB');
 
         Route::post('FPPOB', 'PPOBController@newPOB')
-            ->name('protocolFPPOB');
+            ->name('protocolFPPOBp');
 
         Route::get('FPZS', 'PZSController@newPZS')
             ->name('protocolFPZS');
 
         Route::post('FPZS', 'PZSController@newZS')
-            ->name('protocolFPZS');
+            ->name('protocolFPZSp');
 
         Route::get('FPODB', 'PODBController@newPODB')
             ->name('protocolFPODB');
 
         Route::post('FPODB', 'PODBController@newOD')
-            ->name('protocolFPODB');
+            ->name('protocolFPODBp');
 
         Route::get('other', 'OtherController@newOther')
             ->name('protocolOther');
 
         Route::post('other', 'OtherController@newOtherSave')
-            ->name('protocolOther');
+            ->name('protocolOtherp');
 
         Route::post('newNumber', 'NewNumberController@newSave')
             ->name('newNumber');
@@ -111,7 +111,7 @@ Route::middleware(['auth'])->group(function () {
             ->name('clientAdd');
 
         Route::post('client/add', 'AllTableController@clientSave')
-            ->name('clientAdd');
+            ->name('clientAddp');
 
         Route::get('client/{clientID}', 'AllTableController@clientShow')
             ->name('clientShow');
@@ -129,7 +129,7 @@ Route::middleware(['auth'])->group(function () {
             ->name('investAdd');
 
         Route::post('invest/add', 'InvestTableController@investSave')
-            ->name('investAdd');
+            ->name('investAddp');
 
         Route::get('invest/{investID?}', 'InvestController@investShow')
             ->name('investShow');
@@ -166,7 +166,7 @@ Route::middleware(['auth'])->group(function () {
             ->name('recipeAdd');
 
         Route::post('add', 'RecipeController@recipeSave')
-            ->name('recipeAdd');
+            ->name('recipeAddp');
 
         Route::get('rec/{recipeID?}/edit', 'RecipeController@recipeEdit')
             ->name('recipeEdit');
@@ -187,17 +187,29 @@ Route::middleware(['auth'])->group(function () {
         Route::get('POB/{pobID}', 'ListController@POBShow')
             ->name('POBShow');
 
+        Route::get('POB/{pobID}/edit', 'ListController@POBEdit')
+            ->name('POBEdit');
+
         Route::get('POBList', 'ListController@POBList')
             ->name('POBList');
 
         Route::get('ODBList', 'ListController@ODBList')
             ->name('ODBList');
 
+        Route::get('ODB/{odbID}', 'ListController@ODBShow')
+            ->name('ODBShow');
+
         Route::get('ZSList', 'ListController@ZSList')
             ->name('ZSList');
 
+        Route::get('ZS/{zsID}', 'ListController@ZSShow')
+            ->name('ZSShow');
+
         Route::get('OtList', 'ListController@OtList')
             ->name('OtList');
+
+        Route::get('Ot/{otID}', 'ListController@OtShow')
+            ->name('OtShow');
     });
 });
 

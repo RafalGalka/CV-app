@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Model\ProtocolNumber;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ListController extends Controller
 {
@@ -32,10 +33,20 @@ class ListController extends Controller
         return view('lists.POBList', ['protocols' => $protocols, 'invest' => $invest]);
     }
 
-    public function POBShow(int $pobID, Request $request): View
+    public function POBShow(int $pobID): View
     {
         return view('lists.POBShow', [
             'pobID' => $this->pobRepository->get($pobID),
+        ]);
+    }
+
+    public function POBEdit(int $pobID): View
+    {
+        $user = Auth::user();
+        $prot = "POBedit";
+
+        return view('lists.POBEdit', [
+            'pobID' => $this->pobRepository->get($pobID), 'user' => $user, 'prot' => $prot
         ]);
     }
 

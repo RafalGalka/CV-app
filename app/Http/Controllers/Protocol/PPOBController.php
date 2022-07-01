@@ -74,6 +74,6 @@ class PPOBController extends Controller
 
         $protocolPOB->save();
 
-        return redirect()->route('home.mainPage');
+        return redirect()->route('lists.POBList');
     }
 }

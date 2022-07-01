@@ -26,7 +26,7 @@ class RecipeController extends Controller
 
     public function recipeList(): View
     {
-        $recipe = Recipe::all();
+        $recipe = Recipe::paginate(10);
         $user = Auth::user();
         $invest = Invest::where('activ', true)->orderBy('short_name')->get();
         return view('recipes.list', ['user' => $user, 'recipe' => $recipe, 'invest' => $invest]);
@@ -37,7 +37,8 @@ class RecipeController extends Controller
         $class = StrenghtClass::where('activ', true)->where('material_types', 'beton')->orderBy('short_name')->get();
         $invest = Invest::where('activ', true)->orderBy('short_name')->get();
         $client = Client::all()->where('activ', 1)->sortBy('short_name');
-        return view('recipes.add', ['client' => $client, 'class' => $class, 'invest' => $invest]);
+        $prot = "REC";
+        return view('recipes.add', ['client' => $client, 'class' => $class, 'invest' => $invest, 'prot' => $prot]);
     }
 
     public function recipeSave(Request $request)
@@ -45,7 +46,7 @@ class RecipeController extends Controller
         $user = Auth::user();
         $recipe = new Recipe();
 
-        $recipe->investment_id = $request->investment_id;
+        $recipe->investment_id = $request->invest_id;
         $recipe->recipe_number = $request->recipe_number;
         $recipe->strenght_class = $request->strenght_class;
         $recipe->rate_time = $request->rate_time;

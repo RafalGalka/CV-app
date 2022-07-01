@@ -47,7 +47,7 @@
                                 <td>{{ $protocol->date }}</td>
                                 <td>{{ $protocol->invest->short_name }}</td>
                                 <td>
-                                    <a href="lists/pob/ {{ $protocol->id }}">Szczegóły
+                                    <a href="lists/ODB/ {{ $protocol->id }}">Szczegóły
                                 </td>
                             </tr>
                         @endforeach

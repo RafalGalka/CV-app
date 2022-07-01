@@ -23,15 +23,15 @@ class InvestTableController extends Controller
     public function investList(Request $request): View
     {
         // Protocol::create($request->all());
-        $invest = Invest::sorting()
-            ->get()
-            ->sortBy('client.short_name')
-            ->sortByDesc('activ');
+        //$invest = Invest::sorting()
+        //   ->get()
+        //   ->sortBy('client.short_name')
+        //  ->sortByDesc('activ');
 
         $phrase = $request->get('phrase');
         $resultPaginator = $this->investRepository->filterBy($phrase)->sortBy('client.short_name')->sortByDesc('activ');
 
-        return view('tables.investList', ['invest' => $resultPaginator, 'phrase' => $phrase]);
+        return view('tables.investList', ['invests' => $resultPaginator, 'phrase' => $phrase]);
     }
 
     public function investAdd()

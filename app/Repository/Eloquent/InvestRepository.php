@@ -37,7 +37,7 @@ class InvestRepository implements InvestRepositoryInterface
             ->paginate($limit);
     }
 
-    public function filterBy(?string $phrase, int $limit = 20)
+    public function filterBy(?string $phrase, int $limit = 150)
     {
         $query = $this->investModel
             ->with('client');

@@ -40,7 +40,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($invest ?? [] as $invest)
+                        @foreach ($invests ?? [] as $invest)
                             <tr>
                                 <td>{{ $invest->id }}</td>
                                 <td>{{ $invest->client->short_name }}</td>
@@ -57,7 +57,6 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
 
     </div>

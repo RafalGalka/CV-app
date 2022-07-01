@@ -26,30 +26,9 @@
 
             <form action="{{ route('recipes.recipeAdd') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group">
 
-                    <label for="client_id">Zleceniodawca</label>
-                    <select class="form-control input-sm @error('client_id') is-invalid @enderror" name="client_id">
-                        <option value="">--select--</option>
-                        @foreach ($client as $client)
-                            <option value="{{ $client->id }}">{{ $client->short_name }}</option>
-                        @endforeach
-                    </select>
-                    @error('client_id')
-                        <div class="invalid-feedback d-block">{{ $message }}</div>
-                    @enderror
+                    <livewire:show-invest :prot="$prot"/>
 
-                    <label for="investment_id">Inwestycja</label>
-                    <select class="form-control input-sm @error('investment_id') is-invalid @enderror" name="investment_id">
-                        <option value="">--select--</option>
-                        @foreach ($invest as $invest)
-                            <option value="{{ $invest->id }}">{{ $invest->short_name }}</option>
-                        @endforeach
-                    </select>
-                    @error('investment_id')
-                        <div class="invalid-feedback d-block">{{ $message }}</div>
-                    @enderror
-                </div>
                 <div class="form-group">
                     <label for="recipe_number">Nr receptury</label>
                     <input type="text" class="form-control @error('recipe_number') is-invalid @enderror" id="recipe_number"
@@ -63,6 +42,7 @@
                     <label for="strenght_class">Klasa wytrzymałości betonu</label>
                     <select class="form-control @error('strenght_class') is-invalid @enderror" id="strenght_class"
                         name="strenght_class">
+                            <option value=""> -- </option>
                         @foreach ($class as $row)
                             <option value={{ $row->strenght_class }}>{{ $row->strenght_class }}</option>
                         @endforeach

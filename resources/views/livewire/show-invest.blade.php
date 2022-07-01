@@ -1,3 +1,5 @@
+@if ( $prot !== "POBedit")
+
 <div>
 <div class="form-row">
     <div class="form-group col-md-3">
@@ -26,8 +28,8 @@
         @enderror
     </div>
 </div>
-
-@if ( $prot == "PO")
+@endif
+@if ( $prot === "PO")
 
 <div class="form-row">
     <div class="form-group col-md-4">
@@ -42,6 +44,11 @@
         @error('recipe')
             <div class="invalid-feedback d-block">{{ $message }}</div>
         @enderror
+
+    <div class="form-group col-md-3">
+        <label for="recipe_add">Dodaj recepturę</label>
+        <a class="btn btn-primary" name="recipe_add" href="recipes.add.html" onclick="window.open('/recipes/add'); return false;">Dodaj recepturę</a>
+    </div>
 </div>
 
 <div class="form-row">

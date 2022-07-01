@@ -1,46 +1,27 @@
 @extends('layout.main')
 
+@section('title', 'Użytkownik')
+
+@section('sidebar')
+    @parent
+
+@endsection
+
 @section('content')
     <div class="card mt-3">
-        <h5 class="card-header">{{ $user->name }}</h5>
+        <h5 class="card-header">Protokół pobrania nr {{ $pobID->protocol_number }}</h5>
         <div class="card-body">
-
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+            <ul></ul>
+            <li>Zleceniodawca: {{ $pobID->invest->client->short_name }}</li>
+            <li>Inwestycja: {{ $pobID->invest->short_name }}</li>
 
             <form action="{{ route('protocols.protocolFPPOB') }}" method="post" enctype="multipart/form-data">
                 @csrf
-
-                <div class="form-group">
-                    <div class="form-group">
-                        <label for="avatar">Dodaj zdjęcie WZ ...</label>
-                        <input type="file" class="form-control-file" id="avatar" name="avatar">
-                        @error('avatar')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
-                    </div>
-
                     <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="protocol_number">Numer protokołu</label>
-                            <input type="number" class="form-control @error('name') is-invalid @enderror"
-                                id="protocol_number" name="protocol_number" value="{{ $nrProt }}" readonly />
-                        </div>
-                        @error('protocol_number')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
-
                         <div class="form-group col-md-3">
                             <label for="date">Data pobrania</label>
                             <input type="date" class="form-control @error('date') is-invalid @enderror" id="date"
-                                name="date" value="{{ $today }}" />
+                                name="date" value="{{ old('date', $pobID->date) }}" />
                         </div>
                         @error('date')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -50,21 +31,17 @@
                             <label for="drive">Przejazd</label>
                             <select class="form-control @error('drive') is-invalid @enderror" id="drive" name="drive"
                                 aria-label=".form-select-lg example">
-                                <option selected value="1">TAK</option>
+                                <option selected value="{{ old($pobID->drive) }}> {{old($pobID->drive)}}"</option>
                                 <option value="0">NIE</option>
                             </select>
                         </div>
                         @error('drive')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
-                    </div>
 
-                    <livewire:show-invest :prot="$prot"/>
-
-                    <div class="form-row">
                         <div class="form-group col-md-2">
                             <label for="air_temp">Temp. pow.</label>
-                            <input type="float" class="form-control @error('air_temp') is-invalid @enderror" id="air_temp"
+                            <input type="float" class="form-control @error('air_temp') is-invalid @enderror" id="air_temp" value="{{ old('air_temp', $pobID->air_temp) }}"
                                 name="air_temp" />
                         </div>
                         @error('air_temp')
@@ -74,8 +51,7 @@
 
                     <div class="form-group">
                         <label for="element">Elementy</label>
-                        <textarea class="form-control @error('element') is-invalid @enderror" id="element" name="element"
-                            rows="6"> </textarea>
+                        <textarea class="form-control @error('element') is-invalid @enderror" id="element" name="element" value="{{ old('element', $pobID->element) }}" rows="6"> </textarea>
                         @error('element')
                             <div class=" invalid-feedback d-block">{{ $message }}
                             </div>
@@ -83,10 +59,43 @@
                     </div>
 
                     <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="recipe">Nr receptury</label>
+                            <input type="text" class="form-control @error('recipe') is-invalid @enderror" id="recipe"
+                                name="recipe" value="{{ old('recipe', $pobID->recipe) }}"/>
+                            @error('recipe')
+                                <div class="invalid-feedback d-block">{{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="compression_class">Klasa betonu</label>
+                            <input type="text" class="form-control @error('compression_class') is-invalid @enderror" id="compression_class"
+                                name="compression_class" value="{{ old('compression_class', $pobID->compression_class) }}"/>
+                            @error('recipe')
+                                <div class="invalid-feedback d-block">{{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="waterproof">Klasa W</label>
+                            <input type="text" class="form-control @error('waterproof') is-invalid @enderror" id="waterproof"
+                                name="waterproof" value="{{ old('waterproof', $pobID->waterproof) }}"/>
+                            @error('waterproof')
+                                <div class="invalid-feedback d-block">{{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-row">
                         <div class="form-group col-sd-2">
                             <label for="days_28">Ś 28d</label>
                             <input type="number" class="form-control @error('days_28') is-invalid @enderror" id="days_28"
-                                name="days_28" />
+                                name="days_28" value="{{ old('days_28', $pobID->days_28) }}"/>
                             @error('days_28')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
@@ -95,7 +104,7 @@
                         <div class="form-group col-sd-2">
                             <label for="days_56">Ś 56d</label>
                             <input type="number" class="form-control @error('days_56') is-invalid @enderror" id="days_56"
-                                name="days_56" />
+                                name="days_56" value="{{ old('days_56', $pobID->days_56) }}"/>
                             @error('days_56')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
@@ -104,7 +113,7 @@
                         <div class="form-group col-sd-2">
                             <label for="days_7">Ś 7d</label>
                             <input type="number" class="form-control @error('days_7') is-invalid @enderror" id="days_7"
-                                name="days_7" />
+                                name="days_7" value="{{ old('days_7', $pobID->days_7) }}"/>
                             @error('days_7')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
@@ -115,7 +124,7 @@
                     <div class="form-group col-sd-2">
                         <label for="volume_phone">Ś na telefon</label>
                         <input type="number" class="form-control @error('volume_phone') is-invalid @enderror"
-                            id="volume_phone" name="volume_phone" />
+                            id="volume_phone" name="volume_phone" value="{{ old('volume_phone', $pobID->volume_phone) }}"/>
                         @error('volume_phone')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
@@ -277,6 +286,8 @@
             <a href="{{ route('lists.POBList') }}" class="btn btn-secondary">Anuluj protokół</a>
             </form>
         </div>
+        @endsection
     </div>
+</div>
 
-@endsection
+

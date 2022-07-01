@@ -64,7 +64,7 @@
                     </tbody>
                 </table>
             </div>
-
+            {{ $recipe->links() }}
         </div>
 
     </div>
