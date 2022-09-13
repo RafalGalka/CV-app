@@ -7,18 +7,8 @@
 
             <form class="form-inline" action="{{ route('tables.invest') }}">
                 <div class="form-row">
-                    @php $investm = $investm ?? ''; @endphp
                     <div class="col-auto">
-                        <select class="form-control input-sm @error('investm') is-invalid @enderror" name="investm">
-                            <option @if ($investm == 'all') selected @endif value="all">Wybór inwestycji</option>
-                            @foreach ($invest as $invest)
-                                <option value="{{ $invest->id }}">{{ $invest->short_name }}</option>
-                            @endforeach
-                        </select>
-                        <button type="submit" class="btn btn-primary mb-1">Wyszukaj</button>
-                        <a href="{{ route('recipes.recipeAdd') }}" role="button" class="btn btn-primary mb-1 ml-2">Dodaj
-                            nową
-                            recepturę</a>
+                        <a href="{{ route('recipes.recipeAdd') }}" role="button" class="btn btn-primary mb-1 ml-2">Dodaj nową recepturę</a>
                     </div>
             </form>
 

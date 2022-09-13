@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Model\Client;
+use App\Model\Invest;
 use Illuminate\View\View;
 use App\Repository\Eloquent\ClientRepository;
 
@@ -23,9 +24,9 @@ class AllTableController extends Controller
 
     public function clientList()
     {
-        $client = Client::all()->sortBy('short_name')->sortByDesc('activ');
+        $clients = Client::orderBy('short_name', 'ASC')->paginate(20);
         $user = Auth::user();
-        return view('tables.clientList', ['client' => $client, 'user' => $user]);
+        return view('tables.clientList', ['clients' => $clients, 'user' => $user]);
     }
 
 
@@ -36,12 +37,13 @@ class AllTableController extends Controller
         $this->clientRepository = $clientRepository;
     }
 
-    public function clientShow(int $clientID, Request $request): View
+    public function clientShow(int $clientID): View
     {
-        $user = Auth::user();
+        $investments = Invest::where('client_id', $clientID)->get();
 
         return view('tables.clientShow', [
             'clientID' => $this->clientRepository->get($clientID),
+            'investments' => $investments,
         ]);
     }
 

@@ -21,9 +21,9 @@ class InvestmentSeeder extends Seeder
         DB::table('investments')->insert([
             [
                 'id' => 1,
-                'client_id' => '5',
-                'name' => 'Park Skandynawia - Warszawa, ul. Ostrobramska, etap 2',
-                'short_name' => 'Park Skandynawia, ul. Ostrobramska e.2',
+                'client_id' => '1',
+                'name' => 'Laboratorium Control',
+                'short_name' => 'Laboratorium Control',
                 'comment' => '',
                 'detail_picking' => '',
                 'activ' => true,
@@ -321,6 +321,17 @@ class InvestmentSeeder extends Seeder
                 'client_id' => '7',
                 'name' => '„BOHEMA etap F” zlokalizowana w Warszawie przy ul. Szwedzkiej.',
                 'short_name' => '"BOHEMA etap F", ul. Szwedzka',
+                'comment' => '',
+                'detail_picking' => '',
+                'activ' => true,
+                'updated_at' => Carbon::now(),
+                'created_at' => Carbon::now()
+            ],
+            [
+                'id' => 29,
+                'client_id' => '5',
+                'name' => 'Park Skandynawia - Warszawa, ul. Ostrobramska, etap 2',
+                'short_name' => 'Park Skandynawia, ul. Ostrobramska e.2',
                 'comment' => '',
                 'detail_picking' => '',
                 'activ' => true,

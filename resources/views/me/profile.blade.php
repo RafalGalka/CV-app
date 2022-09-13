@@ -12,7 +12,7 @@
         @endif -->
         <ul>
             <li>Nazwa: {{ $user->name }}</li>
-            <li>Nazwa firmy: {{ $user->company }}</li>
+            <li>Nazwa firmy: {{ $user->client->short_name }}</li>
             <li>Email: {{ $user->email }}</li>
             <li>Telefon: {{ $user->phone }}</li>
         </ul>

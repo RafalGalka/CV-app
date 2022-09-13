@@ -29,7 +29,7 @@ class InvestRepository implements InvestRepositoryInterface
             ->get();
     }
 
-    public function allPaginated(int $limit = 15)
+    public function allPaginated(int $limit = 5)
     {
         return $this->investModel
             ->with('client')
@@ -37,16 +37,17 @@ class InvestRepository implements InvestRepositoryInterface
             ->paginate($limit);
     }
 
-    public function filterBy(?string $phrase, int $limit = 150)
+    public function filterBy(?string $phrase, int $limit = 20)
     {
         $query = $this->investModel
-            ->with('client');
+            ->with('client')
+            ->orderBy('activ', 'DESC');
 
         if ($phrase) {
             $query->whereRaw('short_name like ?', ["%$phrase%"]);
         }
 
-        return $query->paginate($limit);
+        return $query->orderBy('short_name')->paginate($limit);
     }
 
     public function updateModel(Invest $invest, array $data): void

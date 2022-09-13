@@ -27,7 +27,7 @@
                     <tr>
                         <td>{{ $user['id'] }}</td>
                         <td>{{ $user['name'] }}</td>
-                        <td>{{ $user['company'] }}</td>
+                        <td>{{ $user->client->short_name }}</td>
                         <td>
                             @can('view', $user)
                             <a href="{{ route('get.user.show', ['userId' => $user['id']]) }}">Szczegóły</a>

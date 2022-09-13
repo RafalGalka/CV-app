@@ -25,10 +25,10 @@ class UpdatesInvest extends FormRequest
     {
         return [
             'client_id' => ['integer'],
-            'name' => ['max:400'],
-            'short_name' => ['max:80'],
-            'detail_picking' => ['max:400'],
-            'comment' => ['max:400'],
+            'name' => ['max:400', 'required'],
+            'short_name' => ['max:80', 'required'],
+            'detail_picking' => ['max:400', 'nullable'],
+            'comment' => ['max:400', 'nullable'],
             'activ' => ['boolean']
         ];
     }
@@ -36,8 +36,11 @@ class UpdatesInvest extends FormRequest
     public function messages()
     {
         return [
+            'client_id.integer' => 'Wybierz Zleceniodawcę',
             'name.max' => 'Maksymalna ilość znaków to: :max',
+            'name.required' => 'Wpisz nazwę inwestycji',
             'short_name.max' => 'Maksymalna ilość znaków to: :max',
+            'short_name.required' => 'Wpisz nazwę skróconą',
             'detail_picking' => 'Maksymalna ilość znaków to: :max',
             'comment' => 'Maksymalna ilość znaków to: :max',
         ];

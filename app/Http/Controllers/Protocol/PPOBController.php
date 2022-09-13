@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Model\ProtocolNumber;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NewPOB;
 use Illuminate\Support\Facades\Auth;
 
 class PPOBController extends Controller
@@ -39,7 +40,7 @@ class PPOBController extends Controller
   } */
 
 
-    public function newPOB(Request $request)
+    public function newPOB(NewPOB $request)
     {
         $user = Auth::user();
         $protocolPOB = new ProtocolPOB();
@@ -74,6 +75,6 @@ class PPOBController extends Controller
 
         $protocolPOB->save();
 
-        return redirect()->route('lists.POBList');
+        return redirect()->route('samples.add', ['nr' => $protocolPOB->protocol_number]);
     }
 }

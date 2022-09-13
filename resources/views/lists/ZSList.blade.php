@@ -55,6 +55,7 @@
 
                 </table>
             </div>
+            {{ $protocols->links() }}
         </div>
     </div>
 @endsection

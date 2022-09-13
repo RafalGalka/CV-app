@@ -15,7 +15,7 @@
             <li>Id: {{ $user->id }}</li>
             <li>Email: {{ $user->email }}</li>
             <li>Imię i nazwisko: {{ $user->name }}</li>
-            <li>Firma: {{ $user->company }}</li>
+            <li>Firma: {{ $user->client->short_name }}</li>
             <li>Telefon: {{ $user->phone }}</li>
         </ul>
 

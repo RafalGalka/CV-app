@@ -10,7 +10,7 @@
                     <div class="col-auto">
                         <select class="form-control input-sm @error('investm') is-invalid @enderror" name="investm">
                             <option @if ($investm == 'all') selected @endif value="all">Wybór inwestycji</option>
-                            @foreach ($invest as $invest)
+                            @foreach ($invests as $invest)
                                 <option value="{{ $invest->id }}">{{ $invest->short_name }}</option>
                             @endforeach
                         </select>
@@ -45,7 +45,7 @@
                             <tr>
                                 <td>{{ $protocol->protocol_number }}</td>
                                 <td>{{ $protocol->date }}</td>
-                                <td>{{ $protocol->invest->short_name }}</td>
+                                <td> @if(isset($protocol->invest->short_name)) {{ $protocol->invest->short_name }} @elseif(isset($protocol->invest->name)) {{ $protocol->invest->name }} @else "-" @endif </td>
                                 <td>
                                     <a href="POB/ {{ $protocol->id }}">Szczegóły
                                 </td>
@@ -55,6 +55,7 @@
 
                 </table>
             </div>
+            {{ $protocols->links() }}
         </div>
     </div>
 @endsection

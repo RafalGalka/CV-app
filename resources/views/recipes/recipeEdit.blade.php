@@ -11,9 +11,10 @@
     <div class="card">
         <h5 class="card-header">Edycja receptury</h5>
         <div class="card-body">
-            <ul></ul>
+            <ul>
             <li>Id: {{ $recipeID->id }}</li>
             <li>Zleceniodawca: {{ $recipeID->invest->client->short_name }}</li>
+            <li>Inwestycja: {{ $recipeID->invest->short_name }}</li>
             </ul>
         </div>
     </div>
@@ -37,15 +38,6 @@
                 @csrf
 
                 <div class="form-group">
-
-                    <label for="investment_id">Inwestycja</label>
-                    <input type="text" class="form-control @error('investment_id') is-invalid @enderror" id="investment_id"
-                        name="investment_id" value="{{ old('investment_id', $recipeID->invest->id) }}" />
-                    @error('investment_id')
-                        <div class="invalid-feedback d-block">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
                     <label for="recipe_number">Nr receptury</label>
                     <input type="text" class="form-control @error('recipe_number') is-invalid @enderror" id="recipe_number"
                         name="recipe_number" value="{{ old('recipe_number', $recipeID->recipe_number) }}" />
@@ -63,9 +55,10 @@
                         @foreach ($class as $row)
                             <option value={{ $row->strenght_class }}>{{ $row->strenght_class }}</option>
                         @endforeach
+                        <option value="">brak danych</option>
                     </select>
                 </div>
-                @error('bending_class')
+                @error('strenght_class')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror
                 <div class="form-group">
@@ -77,7 +70,7 @@
                         <option value="28">28 dni</option>
                         <option value="56">56 dni</option>
                         <option value="90">90 dni</option>
-                        <option value="">inny wiek</option>
+                        <option value="0">brak/inny wiek</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -91,6 +84,7 @@
                         <option value="W12">W12</option>
                         <option value="W6">W6</option>
                         <option value="W4">W4</option>
+                        <option value="W-">brak wodoszczelności</option>
                         <option value="Wxx">inny</option>
                     </select>
                 </div>
@@ -103,7 +97,7 @@
                         <option value="28">28 dni</option>
                         <option value="56">56 dni</option>
                         <option value="90">90 dni</option>
-                        <option value="">inny wiek</option>
+                        <option value="0">brak/inny wiek</option>
                     </select>
                 </div>
                 <div class="form-group">

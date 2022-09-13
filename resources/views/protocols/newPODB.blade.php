@@ -127,7 +127,8 @@
                     </div>
 
                 </div>
-                <button type="submit" class="btn btn-primary">Zapisz protokół</button>
+                <button type="submit" name="btn" value="save" class="btn btn-primary">Zapisz protokół</button>
+                <button type="submit" name="btn" value="addSample" class="btn btn-primary">Zapisz protokół i dodaj listę prób</button>
                 <a href="{{ route('home.mainPage') }}" class="btn btn-secondary">Anuluj protokół</a>
             </form>
         </div>

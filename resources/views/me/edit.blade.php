@@ -48,7 +48,7 @@
 
                     <label for="IDCompany">Nazwa firmy</label>
                     <input type="text" class="form-control @error('IDCompany') is-invalid @enderror" id="IDCompany"
-                        name="IDCompany" value="{{ $user->IDCompany }}" readonly />
+                        name="IDCompany" value="{{ $user->client->short_name }}" readonly />
                     @error('IDCompany')
                         <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror

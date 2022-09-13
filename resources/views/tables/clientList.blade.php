@@ -31,7 +31,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($client ?? [] as $client)
+                        @foreach ($clients ?? [] as $client)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $client->short_name }}</td>
@@ -49,7 +49,7 @@
                     </tbody>
                 </table>
             </div>
-
+            {{ $clients->links() }}
         </div>
 
     </div>

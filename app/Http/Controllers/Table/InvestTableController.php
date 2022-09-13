@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Table;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Model\Client;
 use App\Model\Invest;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdatesInvest;
 use App\Repository\Eloquent\InvestRepository;
 
 class InvestTableController extends Controller
@@ -29,7 +30,7 @@ class InvestTableController extends Controller
         //  ->sortByDesc('activ');
 
         $phrase = $request->get('phrase');
-        $resultPaginator = $this->investRepository->filterBy($phrase)->sortBy('client.short_name')->sortByDesc('activ');
+        $resultPaginator = $this->investRepository->filterBy($phrase);
 
         return view('tables.investList', ['invests' => $resultPaginator, 'phrase' => $phrase]);
     }
@@ -40,8 +41,9 @@ class InvestTableController extends Controller
         return view('tables.investAdd', ['client' => $client]);
     }
 
-    public function investSave(Request $request)
+    public function investSave(UpdatesInvest $request)
     {
+        //$invest = $request->validated();
         $invest = new Invest();
 
         $invest->client_id = $request->client_id;

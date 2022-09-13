@@ -32,7 +32,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Lp</th>
                             <th>Zleceniodawca</th>
                             <th>Budowa</th>
                             <th>Aktywny</th>
@@ -42,7 +42,7 @@
                     <tbody>
                         @foreach ($invests ?? [] as $invest)
                             <tr>
-                                <td>{{ $invest->id }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $invest->client->short_name }}</td>
                                 <td>{{ $invest->short_name }}</td>
                                 <td>@if ($invest->activ == 1)
@@ -55,9 +55,13 @@
                             </tr>
                         @endforeach
                     </tbody>
+
                 </table>
+
             </div>
+            {{ $invests->links() }}
         </div>
 
     </div>
+
 @endsection

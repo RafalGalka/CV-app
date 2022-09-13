@@ -48,6 +48,7 @@
             </ul>
             <a href="{{ $pobID->id }}/edit" class="btn btn-light">Edytuj protokół</a>
             <a href="{{  url()->previous() }}" class="btn btn-light">Powrót do listy PPOB</a>
+            <a href="{{ route('samples.list', array('protocol' => $pobID->protocol_number)) }}" class="btn btn-info">Lista prób</a>
         </div>
     </div>
 @endsection

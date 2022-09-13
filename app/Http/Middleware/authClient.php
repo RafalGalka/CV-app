@@ -16,6 +16,10 @@ class authClient
      */
     public function handle(Request $request, Closure $next)
     {
+        if (auth()->user()->isControl != 1) {
+            return abort(403);
+        }
+
         return $next($request);
     }
 }

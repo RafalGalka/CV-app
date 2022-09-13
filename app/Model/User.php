@@ -44,6 +44,11 @@ class User extends Authenticatable
             ->with('genres');
     }
 
+    public function client()
+    {
+        return $this->hasOne(Client::class, 'id', 'IDCompany');
+    }
+
     public function addGame(Game $game): void
     {
         $this->games()->save($game);

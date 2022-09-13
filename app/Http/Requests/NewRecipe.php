@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatesRecipe extends FormRequest
+class NewRecipe extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class UpdatesRecipe extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,6 +24,8 @@ class UpdatesRecipe extends FormRequest
     public function rules()
     {
         return [
+
+            
             'recipe_number' => ['string', 'required'],
             'strenght_class' => ['string', 'max:20'],
             'rate_time' => ['integer', 'nullable'],

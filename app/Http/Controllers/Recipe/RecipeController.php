@@ -26,7 +26,7 @@ class RecipeController extends Controller
 
     public function recipeList(): View
     {
-        $recipe = Recipe::paginate(10);
+        $recipe = Recipe::orderBy('recipe_number')->paginate(20);
         $user = Auth::user();
         $invest = Invest::where('activ', true)->orderBy('short_name')->get();
         return view('recipes.list', ['user' => $user, 'recipe' => $recipe, 'invest' => $invest]);

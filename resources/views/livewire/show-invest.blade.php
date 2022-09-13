@@ -47,7 +47,7 @@
 
     <div class="form-group col-md-3">
         <label for="recipe_add">Dodaj recepturę</label>
-        <a class="btn btn-primary" name="recipe_add" href="recipes.add.html" onclick="window.open('/recipes/add'); return false;">Dodaj recepturę</a>
+        <a class="btn btn-primary" name="recipe_add"  href="recipes.add.html" onclick="window.open('/recipes/add'); return false;">Dodaj recepturę</a>
     </div>
 </div>
 

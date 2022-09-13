@@ -27,4 +27,33 @@
             <a href="{{ route('tables.client') }}" class="btn btn-light">Powrót do listy Zleceniodawców</a>
         </div>
     </div>
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>lp</th>
+                    <th>Budowa</th>
+                    <th>Aktywny</th>
+                    <th>Szczegóły</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($investments ?? [] as $investment)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $investment->short_name }}</td>
+                        <td>@if ($investment->activ == 1)
+                            TAK
+                        @else
+                            NIE
+                        @endif
+                    </td>
+                        <td>
+                            <a href="{{ route('tables.investShow', $investment->id) }}">Szczegóły
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection

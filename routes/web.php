@@ -86,7 +86,8 @@ Route::middleware(['auth'])->group(function () {
             ->name('protocolFPODBp');
 
         Route::get('other', 'OtherController@newOther')
-            ->name('protocolOther');
+            ->name('protocolOther')
+            ->middleware('authClient');
 
         Route::post('other', 'OtherController@newOtherSave')
             ->name('protocolOtherp');
@@ -95,11 +96,50 @@ Route::middleware(['auth'])->group(function () {
             ->name('newNumber');
     });
 
+    // PRÓBKI POBRANE F-PPOB
+    Route::group([
+        'prefix' => 'samples',
+        'namespace' => 'Sample',
+        'as' => 'samples.'
+    ], function () {
+        Route::get('add', 'SamplesController@add')
+            ->name('add');
+
+        Route::delete('delete/{id}', 'SamplesController@delete')
+            ->name('delete');
+
+        Route::get('list/{protocol}', 'SamplesController@list')
+            ->name('list');
+
+        Route::post('save', 'SamplesController@save')
+            ->name('save');
+    });
+
+    // PRÓBKI ODEBRANE OD ZLECENIODAWCY F-OD
+    Route::group([
+        'prefix' => 'sample',
+        'namespace' => 'Sample',
+        'as' => 'sample.'
+    ], function () {
+        Route::get('add', 'TakeSamplesController@add')
+            ->name('add');
+
+        Route::delete('delete/{id}', 'TakeSamplesController@delete')
+            ->name('delete');
+
+        Route::get('list/{protocol}', 'TakeSamplesController@list')
+            ->name('list');
+
+        Route::post('save', 'TakeSamplesController@save')
+            ->name('save');
+    });
+
     // TABLE
     Route::group([
         'prefix' => 'tables',
         'namespace' => 'Table',
-        'as' => 'tables.'
+        'as' => 'tables.',
+        'middleware' => 'authClient'
     ], function () {
         Route::get('', 'AllTableController@tableList')
             ->name('table');
@@ -189,6 +229,9 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('POB/{pobID}/edit', 'ListController@POBEdit')
             ->name('POBEdit');
+
+        Route::post('POB/{pobID}/update', 'ListController@POBUpdate')
+            ->name('POBUpdate');
 
         Route::get('POBList', 'ListController@POBList')
             ->name('POBList');

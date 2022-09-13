@@ -58,14 +58,14 @@
                         <option value="28">28 dni</option>
                         <option value="56">56 dni</option>
                         <option value="90">90 dni</option>
-                        <option value="">inny wiek</option>
+                        <option value="0">brak/inny wiek</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="waterproof">Stopień wodoszczelności</label>
                     <select class="form-control @error('waterproof') is-invalid @enderror" id="waterproof" name="waterproof"
                         aria-label=".form-select-lg example">
-                        <option value=""> - </option>
+                        <option selected value="W-"> brak wodoszczelności </option>
                         <option value="W8">W8</option>
                         <option value="W10">W10</option>
                         <option value="W12">W12</option>
@@ -78,11 +78,10 @@
                     <label for="w_days">Wiek oceny wodoszczelności</label>
                     <select class="form-control @error('w_days') is-invalid @enderror" id="w_days" name="w_days"
                         aria-label=".form-select-lg example">
-                        <option value=""> - </option>
+                        <option selected value="0">brak/inny wiek</option>
                         <option value="28">28 dni</option>
                         <option value="56">56 dni</option>
                         <option value="90">90 dni</option>
-                        <option value="">inny wiek</option>
                     </select>
                 </div>
                 <div class="form-group">

@@ -53,6 +53,10 @@ class PODBController extends Controller
 
         $protocolOD->save();
 
-        return redirect()->route('home.mainPage');
+        if ($request->btn == 'addSample') {
+            return redirect()->route('sample.add', ['nr' => $protocolOD->protocol_number]);
+        } else {
+            return redirect()->route('home.mainPage');
+        }
     }
 }
