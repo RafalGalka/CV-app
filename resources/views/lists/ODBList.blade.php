@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card mt-3">
-        <div class="card-header"><i class="fas fa-table mr-1"></i>Protokoły pobrań</div>
+        <div class="card-header"><i class="fas fa-table mr-1"></i>Protokoły odbioru prób F-ODB</div>
 
             <form class="form-inline" action="{{ route('tables.invest') }}">
                 <div class="form-row">
@@ -36,6 +36,7 @@
                             <th>Nr protokołu</th>
                             <th>Data pobrania</th>
                             <th>Budowa</th>
+                            <th>Ilość prób</th>
                             <th>Szczegóły</th>
                         </tr>
                     </thead>
@@ -45,7 +46,9 @@
                             <tr>
                                 <td>{{ $protocol->protocol_number }}</td>
                                 <td>{{ $protocol->date }}</td>
-                                <td>{{ $protocol->invest->short_name }}</td>
+                                <td>@if (isset($protocol->invest->short_name)) {{ $protocol->invest->short_name }} @else -
+                                @endif</td>
+                                <td>{{ $protocol->number_of_sample }}</td>
                                 <td>
                                     <a href="lists/ODB/ {{ $protocol->id }}">Szczegóły
                                 </td>

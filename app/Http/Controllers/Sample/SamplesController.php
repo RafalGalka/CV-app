@@ -6,6 +6,7 @@ use App\Model\Sample;
 use Illuminate\View\View;
 use App\Model\ProtocolPOB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use App\Http\Requests\NewSample;
 use App\Http\Controllers\Controller;
 
@@ -14,6 +15,8 @@ class SamplesController extends Controller
     public function add(): View
     {
         $protocol = ProtocolPOB::where('protocol_number', $_GET['nr'])->first();
+
+        $time = Carbon::now()->format('H:i');
 
         if ($protocol->type_A == 1) $volA = $protocol->volume_A;
         else $volA = 0;
@@ -60,7 +63,7 @@ class SamplesController extends Controller
             $nr += $sample->number;
         }
 
-        return view('samples.add', ['protocol' => $protocol, 'strenght_samples' => $strenght_samples, 'W_samples' => $W_samples, 'F_samples' => $F_samples, 'N_samples' => $N_samples, 'nr' => $nr, 'save_samples' => $save_samples, 'nrr' => $nrr]);
+        return view('samples.add', ['protocol' => $protocol, 'strenght_samples' => $strenght_samples, 'W_samples' => $W_samples, 'F_samples' => $F_samples, 'N_samples' => $N_samples, 'nr' => $nr, 'save_samples' => $save_samples, 'nrr' => $nrr, 'time' => $time]);
     }
 
     public function list($protocol): View

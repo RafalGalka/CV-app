@@ -13,6 +13,11 @@ class Sample extends Model
 
     public function protocol()
     {
-        return $this->belongsTo(Post::class, 'protocol_number', 'protocol_number');
+        return $this->belongsTo(ProtocolNumber::class, 'protocol_number', 'protocol_number');
+    }
+
+    public function class()
+    {
+        return $this->belongsTo(StrenghtClass::class, 'compression_class');
     }
 }

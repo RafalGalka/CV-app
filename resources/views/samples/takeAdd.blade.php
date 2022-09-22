@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="card mt-3">
-        <h5 class="card-header">Nr protokołu {{ $_GET["nr"] }} z {{ $protocol->date }}. Budowa {{$protocol->invest->short_name}}</h5>
+        <h5 class="card-header">Nr protokołu {{ $_GET["nr"] }} z {{ $protocol->date }}. Budowa: {{$protocol->invest->short_name}}</h5>
         <div class="card-body">
 
             @if ($errors->any())
@@ -18,13 +18,11 @@
 
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    <h5>Ilości prób łącznie: {{$protocol->days_28+$protocol->days_56+$strenght_samples+$W_samples+$N_samples+$F_samples}} , pozostało: {{$protocol->days_28+$protocol->days_56+$strenght_samples+$W_samples+$N_samples+$F_samples-$nr}}</h5>
-                    <h6>Zalecane: 150x150x150: {{$protocol->days_28+$protocol->days_56+$strenght_samples+$W_samples}}, 100x100x100: {{$F_samples+$N_samples}}</h6>
-                    <h6>Próbki do badania ściskania: 28d: {{$protocol->days_28}}, Ś56: {{$protocol->days_56}}, inne: {{$strenght_samples}} </h6>
+                    <h5>Ilości prób łącznie: {{$protocol->number_of_sample}} , pozostało: {{$protocol->number_of_sample-2}}</h5>
                 </div>
             </div>
 
-            <form action="{{ route('samples.save') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('sample.save') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group">
@@ -41,69 +39,72 @@
                             @enderror
                         </div>
 
-                        <div class="form-group col-md-2">
-                            <label for="sample_type">Typ prób</label>
-                            <select class="form-control @error('sample_type') is-invalid @enderror" id="sample_type"
-                                name="sample_type" aria-label=".form-select-lg example">
-                                <option value="1">150x150x150</option>
-                                <option value="2">100x100x100</option>
-                                <option value="3">inny</option>
+                        <div class="form-group col-md-3">
+                            <label for="picking_date">Data pobrania</label>
+                            <input type="date" class="form-control @error('picking_date') is-invalid @enderror" id="picking_date"
+                                name="picking_date" value="{{ old('date') }}"/>
+                        </div>
+                        @error('picking_date')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="mark">Nr receptury</label>
+                            <input type="text" class="form-control @error('mark') is-invalid @enderror"
+                                id="mark" name="mark" value="{{ old('mark') }}" autocomplete="off"/>
+                            @error('mark')
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="compression_class">Klasa wytrzymałości</label>
+                            <select class="form-control @error('type_A') is-invalid @enderror" id="compression_class"
+                                name="compression_class" aria-label=".form-select-lg example">
+                                <option value=""> --wybierz-- </option>
+                                @foreach ($classes as $class)
+                                    <option value={{ $class->id }}>{{ $class->strenght_class }}</option>
+                                @endforeach
                             </select>
-                            @error('sample_type')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="init">Godzina pobr.</label>
-                            <input type="time" class="form-control @error('hour') is-invalid @enderror"
-                                id="hour" name="hour" value="{{ old('hour') }}" />
-                            @error('hour')
+
+                            @error('compression_class')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group col-md-2">
-                            <label for="wz_number">Nr WZ</label>
-                            <input type="text" class="form-control @error('wz_number') is-invalid @enderror"
-                                id="wz_number" name="wz_number" value="{{ old('wz_number') }}" autocomplete="off"/>
-                            @error('wz_number')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="consistency">Opad stożka[mm]</label>
-                            <input type="number" class="form-control @error('consistency') is-invalid @enderror"
-                                id="consistency" name="consistency" value="{{ old('consistency') }}" />
-                            @error('consistency')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="temperature">Temp. miesz.[&#176;C]</label>
-                            <input type="float" class="form-control @error('temperature') is-invalid @enderror"
-                                id="temperature" name="temperature" autocomplete="off" value="{{ old('temperature') }}" />
-                            @error('temperature')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
-                        </div>
+                    <div class="form-group">
+                        <label for="element">Elementy <i>(informacje od Zleceniodawcy)</i></label>
+                        <textarea class="form-control @error('element') is-invalid @enderror" id="element" name="element"
+                            rows="2" autocomplete="off"> {{ old('element') }} </textarea>
+                        @error('element')
+                            <div class=" invalid-feedback d-block">{{ $message }}
+                            </div>
+                        @enderror
                     </div>
 
                     <div class="form-row">
+
                         <div class="form-group col-md-3">
-                            <label for="air_content">Zaw. powietrza[%]</label>
-                            <input type="float" class="form-control @error('air_content') is-invalid @enderror"
-                                id="air_content" name="air_content" autocomplete="off" value="{{ old('air_content') }}" />
-                            @error('air_content')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
+                            <label for="test_type">Rodzaj badania</label>
+                            <select class="form-control @error('type_A') is-invalid @enderror" id="test_type"
+                                name="test_type" aria-label=".form-select-lg example">
+                                <option value="1" {{ old('test_type') == 1 ? 'selected' : ''}}>Ściskanie</option>
+                                <option value="2" {{ old('test_type') == 2 ? 'selected' : ''}}>Wodoszczelność W8</option>
+                                <option value="3" {{ old('test_type') == 3 ? 'selected' : ''}}>Wodoszczelność W10</option>
+                                <option value="4" {{ old('test_type') == 4 ? 'selected' : ''}}>Mrozoodporność F150</option>
+                                <option value="5" {{ old('test_type') == 5 ? 'selected' : ''}}>Mrozoodporność F200</option>
+                                <option value="6" {{ old('test_type') == 6 ? 'selected' : ''}}>Nasiąkliwość</option>
+                                <option value="7" {{ old('test_type') == 7 ? 'selected' : ''}}>Inne</option>
+                            </select>
                         </div>
+
                         <div class="form-group col-md-3">
-                            <label for="reinforcement_volume">Ilość zbr.rozpr.[kg/m&sup3;]</label>
-                            <input type="float" class="form-control @error('reinforcement_volume') is-invalid @enderror"
-                                id="reinforcement_volume" name="reinforcement_volume" autocomplete="off" value="{{ old('reinforcement_volume') }}"/>
-                            @error('reinforcement_volume')
+                            <label for="test_time">Dni do badania</label>
+                            <input type="number" class="form-control @error('test_time') is-invalid @enderror" id="test_time"
+                                name="test_time" value="{{ old('test_time', 28) }}"/>
+                            @error('test_time')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
                         </div>
@@ -117,26 +118,37 @@
                         </div>
                     @enderror
 
+                    <label for="client_comment">Uwagi Zleceniodawcy</label>
+                    <input type="text" class="form-control @error('client_comment') is-invalid @enderror" id="client_comment"
+                        name="client_comment" autocomplete="off" value="{{ old('client_comment') }}" readonly/>
+                    @error('client_comment')
+                        <div class=" invalid-feedback d-block">{{ $message }}
+                        </div>
+                    @enderror
+
                 </div>
 
                 <div class="mt-3">
                     <button type="submit" name="add" value="next" class="btn btn-success">Zapisz próbki</button>
+                    <button type="submit" name="add" value="copy" class="btn btn-success">Zapisz próbki i kopiuj dane</button>
                 </div>
 
                 <div class="mt-3">
                     <button type="submit" name="add" value="end" class="btn btn-primary">Wyjdź</button>
-                    <a href="{{ route('lists.POBEdit', array('pobID' => $protocol->id)) }}" class="btn btn-primary">Zapisz i edytuj protokół</a>
+                    <a href="{{ route('lists.ODBEdit', array('pobID' => $protocol->id)) }}" class="btn btn-primary">Zapisz i edytuj protokół</a>
                 </div>
             </form>
         </div>
+
+        @if (isset($data)) @dd($data) @else - @endif
 
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     <th>Oznaczenie</th>
-                    <th>Nr WZ</th>
-                    <th>Konsystencja</th>
-                    <th>Zaw. powietrza</th>
+                    <th>Data pobrania</th>
+                    <th>Rodzaj badania</th>
+                    <th>Klasa wytrz.</th>
                     <th>Akcje</th>
                 </tr>
             </thead>
@@ -150,11 +162,33 @@
                             @endfor
                             @else 0 @endif
                         </td>
-                        <td> @if(isset($sample->wz_number)) {{ $sample->wz_number }} @else - @endif </td>
-                        <td> @if(isset($sample->consistency)) {{ $sample->consistency }} @else - @endif </td>
-                        <td> @if(isset($sample->air_content)) {{ $sample->air_content }} @else - @endif </td>
+                        <td> @if(isset($sample->picking_date)) {{ $sample->picking_date }} @else - @endif </td>
+                        <td> @switch($sample->test_type)
+                            @case(1)
+                                Ś
+                                @break
+                            @case(2)
+                                W8
+                                @break
+                            @case(3)
+                                W10
+                                @break
+                            @case(4)
+                                F150
+                                @break
+                            @case(5)
+                                F200
+                                @break
+                            @case(6)
+                                Nasiąkliwość
+                                @break
+                            @default
+                                Inne
+                        @endswitch
+                            @if(isset($sample->test_time)) {{ $sample->test_time }} @else - @endif </td>
+                        <td> @if(isset($sample->class->strenght_class)) {{ $sample->class->strenght_class }} @else - @endif </td>
                         <td>
-                            <form method="POST" action="{{ route('samples.delete', $sample->id) }}">
+                            <form method="POST" action="{{ route('sample.delete', $sample->id) }}">
                                 @csrf
                                 <input name="_method" type="hidden" value="DELETE">
                                 <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Usuń</button>

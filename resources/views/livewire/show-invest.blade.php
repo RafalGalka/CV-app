@@ -49,6 +49,10 @@
         <label for="recipe_add">Dodaj recepturę</label>
         <a class="btn btn-primary" name="recipe_add"  href="recipes.add.html" onclick="window.open('/recipes/add'); return false;">Dodaj recepturę</a>
     </div>
+    <div class="form-group col-md-3">
+        <label for="details">Szczegóły pobrań</label>
+        <a class="btn btn-info" target="details" href="{{ route('tables.invest') }}" onclick="window.open('{{ route('tables.invest') }}', 'nazwa' ,'width=600,height=800').focus(); return false">Szczegóły</a>
+    </div>
 </div>
 
 <div class="form-row">

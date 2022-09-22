@@ -37,40 +37,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function games()
-    {
-        return $this->belongsToMany(Game::class, 'userGames')
-            ->withPivot('rate')
-            ->with('genres');
-    }
-
-    public function client()
-    {
-        return $this->hasOne(Client::class, 'id', 'IDCompany');
-    }
-
-    public function addGame(Game $game): void
-    {
-        $this->games()->save($game);
-    }
-
-    public function removeGame(Game $game): void
-    {
-        $this->games()->detach($game->id);
-    }
-
-    public function hasGame(int $gameId): bool
-    {
-        $game = $this->games()->where('userGames.game_id', $gameId)->first();
-
-        return (bool) $game;
-    }
-
-    public function rateGame(Game $game, ?int $rate): void
-    {
-        $this->games()->updateExistingPivot($game, ['rate' => $rate]);
-    }
-
     public function isAdmin(): bool
     {
         return (bool) $this->admin;

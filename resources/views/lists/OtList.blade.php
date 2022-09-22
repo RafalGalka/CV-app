@@ -36,6 +36,7 @@
                             <th>Nr protokołu</th>
                             <th>Data pobrania</th>
                             <th>Budowa</th>
+                            <th>Rodzaj badania</th>
                             <th>Szczegóły</th>
                         </tr>
                     </thead>
@@ -46,8 +47,9 @@
                                 <td>{{ $protocol->protocol_number }}</td>
                                 <td>{{ $protocol->date }}</td>
                                 <td>{{ $protocol->invest->short_name }}</td>
+                                <td>{{ $protocol->test_type }}</td>
                                 <td>
-                                    <a href="lists/Ot/ {{ $protocol->id }}">Szczegóły
+                                    <a href="{{ route('lists.OtShow', ['otID' => $protocol->id]) }}">Szczegóły
                                 </td>
                             </tr>
                         @endforeach

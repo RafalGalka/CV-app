@@ -56,7 +56,7 @@
                         <div class="form-group col-md-2">
                             <label for="init">Godzina pobr.</label>
                             <input type="time" class="form-control @error('hour') is-invalid @enderror"
-                                id="hour" name="hour" value="{{ old('hour') }}" />
+                                id="hour" name="hour" value="{{ old('hour', $time) }}" />
                             @error('hour')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
@@ -125,7 +125,7 @@
 
                 <div class="mt-3">
                     <button type="submit" name="add" value="end" class="btn btn-primary">Wyjdź</button>
-                    <a href="{{ route('lists.POBEdit', array('pobID' => $protocol->id)) }}" class="btn btn-primary">Zapisz i edytuj protokół</a>
+                    <a href="{{ route('lists.POBEdit', array('pobID' => $protocol->id)) }}" class="btn btn-primary">Edytuj protokół</a>
                 </div>
             </form>
         </div>
@@ -134,6 +134,7 @@
             <thead>
                 <tr>
                     <th>Oznaczenie</th>
+                    <th>Typ prób</th>
                     <th>Nr WZ</th>
                     <th>Konsystencja</th>
                     <th>Zaw. powietrza</th>
@@ -150,6 +151,11 @@
                             @endfor
                             @else 0 @endif
                         </td>
+                        <td> @if(isset($sample->sample_type))
+                            @if ( $sample->sample_type == 1) 15x15x15 @elseif ( $sample->sample_type == 2 ) 10x10x10 @else inny
+                                @endif
+                            @else -
+                            @endif </td>
                         <td> @if(isset($sample->wz_number)) {{ $sample->wz_number }} @else - @endif </td>
                         <td> @if(isset($sample->consistency)) {{ $sample->consistency }} @else - @endif </td>
                         <td> @if(isset($sample->air_content)) {{ $sample->air_content }} @else - @endif </td>

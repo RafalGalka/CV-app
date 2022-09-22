@@ -27,8 +27,7 @@ class AdTakeSamples extends Migration
     public function down()
     {
         Schema::table('take_samples', function (Blueprint $table) {
-            $table->dropColumn('compression_class');
-            $table->dropColumn('test_time');
+            $table->dropColumn(['compression_class', 'test_time']);
         });
     }
 }

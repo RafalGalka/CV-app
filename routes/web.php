@@ -242,6 +242,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('ODB/{odbID}', 'ListController@ODBShow')
             ->name('ODBShow');
 
+        Route::get('ODB/{pobID}/edit', 'ListController@ODBEdit')
+            ->name('ODBEdit');
+
         Route::get('ZSList', 'ListController@ZSList')
             ->name('ZSList');
 
@@ -253,6 +256,12 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('Ot/{otID}', 'ListController@OtShow')
             ->name('OtShow');
+
+        Route::get('Ot/{otID}/edit', 'ListController@OtEdit')
+            ->name('OtEdit');
+
+        Route::post('Ot/{otID}/update', 'ListController@OtUpdate')
+            ->name('OtUpdate');
     });
 });
 

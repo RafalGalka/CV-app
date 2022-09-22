@@ -18,14 +18,15 @@
             <form action="{{ route('protocols.protocolFPPOB') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
-                <div class="form-group">
-                    <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
                         <label for="avatar">Dodaj zdjęcie WZ ...</label>
                         <input type="file" class="form-control-file" id="avatar" name="avatar">
                         @error('avatar')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
                     </div>
+                </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-3">
@@ -71,9 +72,9 @@
                     <livewire:show-invest :prot="$prot"/>
 
                     <div class="form-group">
-                        <label for="element">Elementy</label>
-                        <textarea class="form-control @error('element') is-invalid @enderror" id="element" name="element" value="{{ old('element') }}"
-                            rows="6"> </textarea>
+                        <label for="element">Elementy <i>(informacje od Zleceniodawcy)</i></label>
+                        <textarea class="form-control @error('element') is-invalid @enderror" id="element" name="element"
+                            rows="5" autocomplete="off"> {{ old('element') }} </textarea>
                         @error('element')
                             <div class=" invalid-feedback d-block">{{ $message }}
                             </div>
@@ -258,7 +259,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="client_comment">Uwagi Zleceniodawcy</label>
                     <input type="text" class="form-control @error('client_comment') is-invalid @enderror"
                         id="client_comment" name="client_comment" readonly />
@@ -266,7 +267,7 @@
                         <div class=" invalid-feedback d-block">{{ $message }}
                         </div>
                     @enderror
-                </div>
+                </div> --}}
             </div>
         </div>
 
@@ -275,6 +276,7 @@
             <a href="{{ route('lists.POBList') }}" class="btn btn-secondary">Anuluj protokół</a>
             </form>
         </div>
-    </div>
+
 
 @endsection
+</div>

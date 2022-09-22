@@ -17,7 +17,6 @@ class MainPage extends Controller
         $invest = Invest::all()->where('activ', 1)->sortBy('short_name');
         $user = Auth::user();
         $client = Client::all()->where('activ', 1)->sortBy('short_name');
-        $cl_id = null;
 
         return view('home.main', ['user' => $user, 'client' => $client, 'invest' => $invest]);
     }

@@ -192,7 +192,7 @@ class ClientSeeder extends Seeder
             [
                 'id' => 18,
                 'name' => 'Centrum Technologiczne BETOTECH Sp. z o.o.',
-                'short_name' => 'BETOTECH',
+                'short_name' => 'BETOTECH / GB',
                 'address' => 'ul. Roździeńskiego 14, 41-306 Dąbrowa Górnicza',
                 'comment' => '',
                 'activ' => true,
