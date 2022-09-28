@@ -45,9 +45,11 @@
                             <tr>
                                 <td>{{ $protocol->protocol_number }}</td>
                                 <td>{{ $protocol->date }}</td>
-                                <td>{{ $protocol->invest->short_name }}</td>
+                                <td>@if (isset($protocol->invest->short_name))
+
+                                {{ $protocol->invest->short_name }} @else - @endif</td>
                                 <td>
-                                    <a href="lists/ZS/ {{ $protocol->id }}">Szczegóły
+                                    <a href="{{ route('lists.ZSShow', ['zsID' => $protocol->id]) }}">Szczegóły
                                 </td>
                             </tr>
                         @endforeach

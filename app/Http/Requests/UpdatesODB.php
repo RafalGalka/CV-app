@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatesOt extends FormRequest
+class UpdatesODB extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,7 @@ class UpdatesOt extends FormRequest
             'date' => ['date', 'required'],
             'drive' => ['boolean'],
             'number_of_sample' => ['numeric', 'max:300', 'nullable'],
-            'test_type' =>  ['numeric', 'max:20', 'nullable'],
+            'sample_type' =>  ['numeric', 'max:10', 'nullable'],
             'my_comment' => ['max:400', 'nullable'],
         ];
     }
@@ -35,7 +35,7 @@ class UpdatesOt extends FormRequest
     public function messages()
     {
         return [
-            'date.require' => 'Wymagane wpisanie daty pobrania/badania',
+            'date.require' => 'Wymagane wpisanie daty pobrania',
             'my_comment' => 'Maksymalna ilość znaków to: :max',
         ];
     }

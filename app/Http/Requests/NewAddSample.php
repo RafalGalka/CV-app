@@ -35,6 +35,8 @@ class NewAddSample extends FormRequest
             'natural_conditions' => 'nullable',
             'reinforcement_volume' => ['nullable', 'numeric', 'max:100', 'min:0', 'regex:/^(?:[1-9]\d+|\d)(?:\.\d\d|\.\d)?$/'],
             'my_comment' => ['nullable', 'string', 'max:300'],
+            's28' => ['nullable', 'integer', 'max:20', 'min:0'],
+            's56' => ['nullable', 'integer', 'max:20', 'min:0'],
         ];
     }
 

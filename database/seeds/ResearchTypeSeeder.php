@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Carbon;
 
 class ResearchTypeSeeder extends Seeder
 {
@@ -15,44 +14,59 @@ class ResearchTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('types_of_research')->truncate();
+        DB::table('researchTypes')->truncate();
 
 
-        DB::table('types_of_research')->insert([
+        DB::table('researchTypes')->insert([
             [
                 'id' => 1,
-                'testName' => 'Wytrzymałość betonu na ściskanie',
+                'research_type' => 'Odwierty rdzeniowe',
                 'activ' => true,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
             ],
             [
                 'id' => 2,
-                'testName' => 'Wodosczelność betonu',
+                'research_type' => 'Pull-off (naklejanie)',
                 'activ' => true,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
             ],
             [
                 'id' => 3,
-                'testName' => 'Mrozoodporność betonu',
+                'research_type' => 'Pull-off (zrywanie)',
                 'activ' => true,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
             ],
             [
                 'id' => 4,
-                'testName' => 'Nasiąkliwość betonu',
+                'research_type' => 'Sklerometr (mł. Schmidta)',
                 'activ' => true,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
             ],
             [
                 'id' => 5,
-                'testName' => 'Dodatkowe/świadki',
+                'research_type' => 'Wilgotność - wycinanie',
                 'activ' => true,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+            ],
+            [
+                'id' => 6,
+                'research_type' => 'Pobór/odbiór kruszywa',
+                'activ' => true,
+            ],
+            [
+                'id' => 7,
+                'research_type' => 'Stabilizacja/podbudowa',
+                'activ' => true,
+            ],
+            [
+                'id' => 8,
+                'research_type' => 'Wypożyczenie form',
+                'activ' => true,
+            ],
+            [
+                'id' => 9,
+                'research_type' => 'Zwrot form',
+                'activ' => true,
+            ],
+            [
+                'id' => 10,
+                'research_type' => 'Inne',
+                'activ' => true,
             ],
         ]);
     }

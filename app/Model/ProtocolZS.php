@@ -19,4 +19,14 @@ class ProtocolZS extends Model
     {
         return $this->belongsTo(Invest::class);
     }
+
+    public function class()
+    {
+        return $this->belongsTo(StrenghtClass::class, 'compression_class');
+    }
+
+    public function classBending()
+    {
+        return $this->belongsTo(StrenghtClass::class, 'bending_class');
+    }
 }

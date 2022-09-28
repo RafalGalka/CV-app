@@ -32,19 +32,48 @@ class TakeSamplesController extends Controller
     public function save(NewAddSample $request)
     {
         $data = $request;
+
         $sample = new TakeSample();
 
-        $sample->protocol_number = $request->protocol_number;
-        $sample->number = $request->number;
-        $sample->mark = $request->mark;
-        $sample->picking_date = $request->picking_date;
-        $sample->test_type = $request->test_type;
-        $sample->element = $request->element;
-        $sample->compression_class = $request->compression_class;
-        $sample->test_time = $request->test_time;
-        $sample->my_comment = $request->my_comment;
+        if ($request->number > 0) {
+            $sample->protocol_number = $request->protocol_number;
+            $sample->number = $request->number;
+            $sample->mark = $request->mark;
+            $sample->picking_date = $request->picking_date;
+            $sample->test_type = $request->test_type;
+            $sample->element = $request->element;
+            $sample->compression_class = $request->compression_class;
+            $sample->test_time = $request->test_time;
+            $sample->my_comment = $request->my_comment;
 
-        $sample->save();
+            $sample->save();
+        };
+        if ($request->s28 > 0) {
+            $sample->protocol_number = $request->protocol_number;
+            $sample->number = $request->s28;
+            $sample->mark = $request->mark;
+            $sample->picking_date = $request->picking_date;
+            $sample->test_type = 1;
+            $sample->element = $request->element;
+            $sample->compression_class = $request->compression_class;
+            $sample->test_time = 28;
+            $sample->my_comment = $request->my_comment;
+
+            $sample->save();
+        };
+        if ($request->s56 > 0) {
+            $sample->protocol_number = $request->protocol_number;
+            $sample->number = $request->s56;
+            $sample->mark = $request->mark;
+            $sample->picking_date = $request->picking_date;
+            $sample->test_type = 1;
+            $sample->element = $request->element;
+            $sample->compression_class = $request->compression_class;
+            $sample->test_time = 56;
+            $sample->my_comment = $request->my_comment;
+
+            $sample->save();
+        };
 
         if ($request->add == "next") return back()->with('success', 'próbki dodane !');
         elseif ($request->add == "copy") return redirect()->back($data)->with('success', 'próbki dodane !');

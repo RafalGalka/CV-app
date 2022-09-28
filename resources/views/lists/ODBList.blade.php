@@ -50,7 +50,7 @@
                                 @endif</td>
                                 <td>{{ $protocol->number_of_sample }}</td>
                                 <td>
-                                    <a href="lists/ODB/ {{ $protocol->id }}">Szczegóły
+                                    <a href="{{ route('lists.ODBShow', ['odbID' => $protocol->id]) }}">Szczegóły
                                 </td>
                             </tr>
                         @endforeach

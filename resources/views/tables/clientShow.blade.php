@@ -23,7 +23,7 @@
                 NIE
             @endif</li>
             </ul>
-            <a href="{{ $clientID->id }}/edit" class="btn btn-light">Edytuj inwestycję</a>
+            <a href="{{ $clientID->id }}/edit" class="btn btn-light">Edytuj Zleceniodawcę</a>
             <a href="{{ route('tables.client') }}" class="btn btn-light">Powrót do listy Zleceniodawców</a>
         </div>
     </div>

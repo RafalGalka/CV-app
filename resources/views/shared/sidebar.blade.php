@@ -10,8 +10,8 @@
 
 <div class="sb-sidenav-menu-heading">Harmonogram</div>
 <nav class="sb-sidenav-menu-nested">
-    <a class="nav-link" href="{{ route('lists.myList') }}">Harmonogramy</a>
     <a class="nav-link" href="{{ route('lists.POBList') }}">Harmonogram POB</a>
+    <a class="nav-link" href="{{ route('lists.myList') }}">Harmonogramy</a>
 </nav>
 
 <div class="sb-sidenav-menu-heading">Badania laboratoryjne</div>

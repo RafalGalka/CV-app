@@ -47,7 +47,7 @@
                                 <td>{{ $protocol->date }}</td>
                                 <td> @if(isset($protocol->invest->short_name)) {{ $protocol->invest->short_name }} @elseif(isset($protocol->invest->name)) {{ $protocol->invest->name }} @else "-" @endif </td>
                                 <td>
-                                    <a href="POB/ {{ $protocol->id }}">Szczegóły
+                                    <a href="POB/ {{ $protocol->id }}">Szczegóły</a> / @if (!isset($protocol->collection)) <a class='btn btn-warning btn-sm' href=#> ! </a> @else <a class='btn btn-success btn-sm' href=#> ok </a> @endif
                                 </td>
                             </tr>
                         @endforeach

@@ -18,7 +18,7 @@
 
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    <h5>Ilości prób łącznie: {{$protocol->number_of_sample}} , pozostało: {{$protocol->number_of_sample-2}}</h5>
+                    <h5>Ilości prób: {{$protocol->number_of_sample}}</h5>
                 </div>
             </div>
 
@@ -30,15 +30,6 @@
                     <div class="form-row">
                         <input type="hidden" name="protocol_number" value={{$protocol->protocol_number}}>
 
-                        <div class="form-group col-md-2">
-                            <label for="number">Ilość prób</label>
-                            <input type="number" class="form-control @error('number') is-invalid @enderror"
-                                id="number" name="number" value="{{ old('number') }}" autocomplete="off"/>
-                            @error('number')
-                                <div class="invalid-feedback d-block">{{ $message }}</div>
-                            @enderror
-                        </div>
-
                         <div class="form-group col-md-3">
                             <label for="picking_date">Data pobrania</label>
                             <input type="date" class="form-control @error('picking_date') is-invalid @enderror" id="picking_date"
@@ -47,9 +38,7 @@
                         @error('picking_date')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
-                    </div>
 
-                    <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="mark">Nr receptury</label>
                             <input type="text" class="form-control @error('mark') is-invalid @enderror"
@@ -87,24 +76,54 @@
                     <div class="form-row">
 
                         <div class="form-group col-md-3">
+                            <label for="s28">Ściskanie 28d</label>
+                            <input type="number" class="form-control @error('s28') is-invalid @enderror" id="s28"
+                                name="s28" value="{{ old('s28') }}"/>
+                            @error('s28')
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="s56">Ściskanie 56d</label>
+                            <input type="number" class="form-control @error('s56') is-invalid @enderror" id="s56"
+                                name="s56" value="{{ old('s56') }}"/>
+                            @error('s56')
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-3">
                             <label for="test_type">Rodzaj badania</label>
                             <select class="form-control @error('type_A') is-invalid @enderror" id="test_type"
                                 name="test_type" aria-label=".form-select-lg example">
+                                <option value="0" {{ old('test_type') == 1 ? 'selected' : ''}}>Brak/inne</option>
                                 <option value="1" {{ old('test_type') == 1 ? 'selected' : ''}}>Ściskanie</option>
                                 <option value="2" {{ old('test_type') == 2 ? 'selected' : ''}}>Wodoszczelność W8</option>
                                 <option value="3" {{ old('test_type') == 3 ? 'selected' : ''}}>Wodoszczelność W10</option>
                                 <option value="4" {{ old('test_type') == 4 ? 'selected' : ''}}>Mrozoodporność F150</option>
                                 <option value="5" {{ old('test_type') == 5 ? 'selected' : ''}}>Mrozoodporność F200</option>
                                 <option value="6" {{ old('test_type') == 6 ? 'selected' : ''}}>Nasiąkliwość</option>
-                                <option value="7" {{ old('test_type') == 7 ? 'selected' : ''}}>Inne</option>
                             </select>
                         </div>
 
                         <div class="form-group col-md-3">
-                            <label for="test_time">Dni do badania</label>
+                            <label for="test_time">Dni przy badaniu</label>
                             <input type="number" class="form-control @error('test_time') is-invalid @enderror" id="test_time"
-                                name="test_time" value="{{ old('test_time', 28) }}"/>
+                                name="test_time" value="{{ old('test_time') }}"/>
                             @error('test_time')
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="number">Ilość prób</label>
+                            <input type="number" class="form-control @error('number') is-invalid @enderror"
+                                id="number" name="number" value="{{ old('number') }}" autocomplete="off"/>
+                            @error('number')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
                         </div>
@@ -130,17 +149,11 @@
 
                 <div class="mt-3">
                     <button type="submit" name="add" value="next" class="btn btn-success">Zapisz próbki</button>
-                    <button type="submit" name="add" value="copy" class="btn btn-success">Zapisz próbki i kopiuj dane</button>
-                </div>
-
-                <div class="mt-3">
-                    <button type="submit" name="add" value="end" class="btn btn-primary">Wyjdź</button>
-                    <a href="{{ route('lists.ODBEdit', array('pobID' => $protocol->id)) }}" class="btn btn-primary">Zapisz i edytuj protokół</a>
+                    <a href="{{ route('lists.ODBList') }}" class="btn btn-primary ml-5">Wyjdź</button>
+                    <a href="{{ route('lists.ODBEdit', array('odbID' => $protocol->id)) }}" class="btn btn-primary ml-2">Edytuj protokół</a>
                 </div>
             </form>
         </div>
-
-        @if (isset($data)) @dd($data) @else - @endif
 
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>

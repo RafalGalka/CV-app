@@ -242,14 +242,23 @@ Route::middleware(['auth'])->group(function () {
         Route::get('ODB/{odbID}', 'ListController@ODBShow')
             ->name('ODBShow');
 
-        Route::get('ODB/{pobID}/edit', 'ListController@ODBEdit')
+        Route::get('ODB/{odbID}/edit', 'ListController@ODBEdit')
             ->name('ODBEdit');
+
+        Route::post('ODB/{odbID}/update', 'ListController@ODBUpdate')
+            ->name('ODBUpdate');
 
         Route::get('ZSList', 'ListController@ZSList')
             ->name('ZSList');
 
         Route::get('ZS/{zsID}', 'ListController@ZSShow')
             ->name('ZSShow');
+
+        Route::get('ZS/{zsID}/edit', 'ListController@ZSEdit')
+            ->name('ZSEdit');
+
+        Route::post('ZS/{zsID}/update', 'ListController@ZSUpdate')
+            ->name('ZSUpdate');
 
         Route::get('OtList', 'ListController@OtList')
             ->name('OtList');

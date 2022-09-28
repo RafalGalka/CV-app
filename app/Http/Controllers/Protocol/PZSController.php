@@ -60,7 +60,7 @@ class PZSController extends Controller
 
         $protocolZS->save();
 
-        return redirect()->route('home.mainPage');
+        return redirect()->route('lists.ZSList');
     }
 
     /*  public function showPZS(int $id)

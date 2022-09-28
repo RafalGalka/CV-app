@@ -18,7 +18,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('protocols.protocolFPODB') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('lists.ODBUpdate', ['odbID' => $data->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group">
@@ -55,8 +55,8 @@
                             <label for="drive">Przejazd</label>
                             <select class="form-control @error('drive') is-invalid @enderror" id="drive" name="drive"
                             aria-label=".form-select-lg example">
-                            <option {{ old('activ', $pobID->drive) == '0' ? 'selected' : '' }} value="0">Nie</option>
-                            <option {{ old('activ', $pobID->drive) == '1' ? 'selected' : '' }} value="1">Tak</option>
+                            <option {{ old('activ', $data->drive) == '0' ? 'selected' : '' }} value="0">Nie</option>
+                            <option {{ old('activ', $data->drive) == '1' ? 'selected' : '' }} value="1">Tak</option>
                         </select>
                         </div>
                     </div>
@@ -73,8 +73,8 @@
 
                         <div class="form-group col-md-4">
                             <label for="sample_type">Typ prób</label>
-                            <select class="form-control @error('type_A') is-invalid @enderror" id="type_A"
-                            name="type_A" aria-label=".form-select-lg example">
+                            <select class="form-control @error('sample_type') is-invalid @enderror" id="sample_type"
+                            name="sample_type" aria-label=".form-select-lg example">
                                 <option value="{{ old('sample_type', $data->sample_type) }}" selected>
                                     @switch($data->sample_type)
                                         @case(1)

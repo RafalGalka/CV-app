@@ -12,6 +12,7 @@ use App\Model\ProtocolNumber;
 use App\Model\Invest;
 use App\Model\Client;
 use Illuminate\Support\Carbon;
+use App\Model\ResearchType;
 
 class OtherController extends Controller
 {
@@ -22,12 +23,13 @@ class OtherController extends Controller
         $user = Auth::user();
         $today = Carbon::today()->toDateString();
         $protocolNumber = ProtocolNumber::all();
+        $types = ResearchType::all();
         $nrProt = ProtocolNumber::max('protocol_number');
         $client = Client::where('activ', true)->orderBy('short_name')->get();
         $invest = Invest::where('activ', true)->orderBy('short_name')->get();
         $prot = "Ot";
 
-        return view('protocols.newOther', ['user' => $user, 'newProtocol' => $newProtocol, 'today' => $today, 'protocolNumber' => $protocolNumber, 'nrProt' => $nrProt, 'client' => $client, 'invest' => $invest, 'prot' => $prot]);
+        return view('protocols.newOther', ['user' => $user, 'newProtocol' => $newProtocol, 'today' => $today, 'protocolNumber' => $protocolNumber, 'nrProt' => $nrProt, 'client' => $client, 'invest' => $invest, 'prot' => $prot, 'types' => $types]);
     }
 
 
