@@ -103,7 +103,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::m3blNXd55M9IEwJb',
+            '_route' => 'generated::heUCKoiNuASTxqDr',
           ),
           1 => NULL,
           2 => 
@@ -123,7 +123,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::1lcYd9fjbUVpGwzj',
+            '_route' => 'generated::eJ0sxktzWUFAPgbS',
           ),
           1 => NULL,
           2 => 
@@ -143,7 +143,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::3VQELuUiahzpRgDB',
+            '_route' => 'generated::xLDGix2MTlVYAdjm',
           ),
           1 => NULL,
           2 => 
@@ -487,6 +487,85 @@ app('router')->setCompiledRoutes(
           2 => 
           array (
             'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/tests/save' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'tests.save',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/wsTests/select' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'wsTests.select',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/wsTests/list' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'wsTests.list',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/wsTests/save' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'wsTests.save',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
           ),
           3 => NULL,
           4 => false,
@@ -904,7 +983,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ZTnz3IPVTacPQejm',
+            '_route' => 'generated::OBHLgiywRUHUe2Oi',
           ),
           1 => NULL,
           2 => 
@@ -959,7 +1038,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Gkl7WLRp2M2W5Wmp',
+            '_route' => 'generated::csTcQOiXo7rn391U',
           ),
           1 => NULL,
           2 => 
@@ -1050,7 +1129,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::dzoIp2RwHsLdXYo1',
+            '_route' => 'generated::WTQ4wds4ig7CJJsI',
           ),
           1 => NULL,
           2 => 
@@ -1066,7 +1145,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/_debugbar/c(?|lockwork/([^/]++)(*:39)|ache/([^/]++)(?:/([^/]++))?(*:73))|/li(?|vewire/(?|message/([^/]++)(*:113)|preview\\-file/([^/]++)(*:143))|sts/(?|POB/([^/]++)(?|(*:174)|/(?|edit(*:190)|update(*:204)))|O(?|DB/([^/]++)(?|(*:232)|/(?|edit(*:248)|update(*:262)))|t/([^/]++)(?|(*:285)|/(?|edit(*:301)|update(*:315))))|ZS/([^/]++)(?|(*:340)|/(?|edit(*:356)|update(*:370)))))|/users/(?|([^/]++)(*:400)|([0-9]+)/address(*:424))|/me/protocol/([^/]++)(?|(*:457))|/sample(?|s/(?|delete/([^/]++)(*:496)|list/([^/]++)(*:517))|/(?|delete/([^/]++)(*:545)|list/([^/]++)(*:566)))|/tables/(?|client/([^/]++)(?|(*:605)|/(?|edit(*:621)|update(*:635)))|invest(?|(?:/([^/]++))?(*:668)|/([^/]++)/(?|edit(*:693)|update(*:707))))|/recipes/rec(?|(?:/([^/]++))?(*:747)|/([^/]++)/(?|edit(*:772)|update(*:786)))|/password/reset/([^/]++)(*:820))/?$}sDu',
+      0 => '{^(?|/_debugbar/c(?|lockwork/([^/]++)(*:39)|ache/([^/]++)(?:/([^/]++))?(*:73))|/li(?|vewire/(?|message/([^/]++)(*:113)|preview\\-file/([^/]++)(*:143))|sts/(?|POB/([^/]++)(?|(*:174)|/(?|edit(*:190)|update(*:204)))|O(?|DB/([^/]++)(?|(*:232)|/(?|edit(*:248)|update(*:262)))|t/([^/]++)(?|(*:285)|/(?|edit(*:301)|update(*:315))))|ZS/([^/]++)(?|(*:340)|/(?|edit(*:356)|update(*:370)))))|/users/(?|([^/]++)(*:400)|([0-9]+)/address(*:424))|/me/protocol/([^/]++)(?|(*:457))|/sample(?|s/(?|delete/([^/]++)(*:496)|list/([^/]++)(*:517))|/(?|delete/([^/]++)(*:545)|list/([^/]++)(*:566)))|/t(?|ests/(?|select/([^/]++)(*:604)|edit/([^/]++)(*:625))|ables/(?|client/([^/]++)(?|(*:661)|/(?|edit(*:677)|update(*:691)))|invest(?|(?:/([^/]++))?(*:724)|/([^/]++)/(?|edit(*:749)|update(*:763)))))|/wsTests/test/([^/]++)(*:797)|/recipes/rec(?|(?:/([^/]++))?(*:834)|/([^/]++)/(?|edit(*:859)|update(*:873)))|/password/reset/([^/]++)(*:907))/?$}sDu',
     ),
     3 => 
     array (
@@ -1612,7 +1691,53 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      605 => 
+      604 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'tests.select',
+          ),
+          1 => 
+          array (
+            0 => 'protocol',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      625 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'tests.edit',
+          ),
+          1 => 
+          array (
+            0 => 'protocol',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      661 => 
       array (
         0 => 
         array (
@@ -1635,7 +1760,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      621 => 
+      677 => 
       array (
         0 => 
         array (
@@ -1659,7 +1784,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      635 => 
+      691 => 
       array (
         0 => 
         array (
@@ -1682,7 +1807,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      668 => 
+      724 => 
       array (
         0 => 
         array (
@@ -1706,7 +1831,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      693 => 
+      749 => 
       array (
         0 => 
         array (
@@ -1730,7 +1855,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      707 => 
+      763 => 
       array (
         0 => 
         array (
@@ -1753,7 +1878,30 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      747 => 
+      797 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'wsTests.test',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      834 => 
       array (
         0 => 
         array (
@@ -1777,7 +1925,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      772 => 
+      859 => 
       array (
         0 => 
         array (
@@ -1801,7 +1949,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      786 => 
+      873 => 
       array (
         0 => 
         array (
@@ -1824,7 +1972,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      820 => 
+      907 => 
       array (
         0 => 
         array (
@@ -2145,7 +2293,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::m3blNXd55M9IEwJb' => 
+    'generated::heUCKoiNuASTxqDr' => 
     array (
       'methods' => 
       array (
@@ -2157,7 +2305,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Controllers\\LivewireJavaScriptAssets@source',
         'controller' => 'Livewire\\Controllers\\LivewireJavaScriptAssets@source',
-        'as' => 'generated::m3blNXd55M9IEwJb',
+        'as' => 'generated::heUCKoiNuASTxqDr',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2173,7 +2321,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::1lcYd9fjbUVpGwzj' => 
+    'generated::eJ0sxktzWUFAPgbS' => 
     array (
       'methods' => 
       array (
@@ -2185,7 +2333,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Controllers\\LivewireJavaScriptAssets@maps',
         'controller' => 'Livewire\\Controllers\\LivewireJavaScriptAssets@maps',
-        'as' => 'generated::1lcYd9fjbUVpGwzj',
+        'as' => 'generated::eJ0sxktzWUFAPgbS',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2201,7 +2349,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::3VQELuUiahzpRgDB' => 
+    'generated::xLDGix2MTlVYAdjm' => 
     array (
       'methods' => 
       array (
@@ -2218,13 +2366,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:295:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000007608e2120000000072d6eab6";}";s:4:"hash";s:44:"uG9NDnz0hAGg/fbJ2Osjzsz3XiZMVBKxCUg+NUa/aHc=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000005ef44ab50000000032833eb6";}";s:4:"hash";s:44:"S564gK7fhhr2MNQSRrAdVUUoS4fg2QPprhiL4G4UwsE=";}}',
         'namespace' => 'App\\Http\\Controllers',
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::3VQELuUiahzpRgDB',
+        'as' => 'generated::xLDGix2MTlVYAdjm',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3126,6 +3274,271 @@ app('router')->setCompiledRoutes(
         'as' => 'samples.save',
         'namespace' => 'App\\Http\\Controllers\\Sample',
         'prefix' => '/samples',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'tests.select' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'tests/select/{protocol}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Test\\TestsController@select',
+        'controller' => 'App\\Http\\Controllers\\Test\\TestsController@select',
+        'as' => 'tests.select',
+        'namespace' => 'App\\Http\\Controllers\\Test',
+        'prefix' => '/tests',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'tests.save' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'tests/save',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Test\\TestsController@save',
+        'controller' => 'App\\Http\\Controllers\\Test\\TestsController@save',
+        'as' => 'tests.save',
+        'namespace' => 'App\\Http\\Controllers\\Test',
+        'prefix' => '/tests',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'tests.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'tests/edit/{protocol}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Test\\TestsController@edit',
+        'controller' => 'App\\Http\\Controllers\\Test\\TestsController@edit',
+        'as' => 'tests.edit',
+        'namespace' => 'App\\Http\\Controllers\\Test',
+        'prefix' => '/tests',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'wsTests.select' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'wsTests/select',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\wsTest\\WSController@select',
+        'controller' => 'App\\Http\\Controllers\\wsTest\\WSController@select',
+        'as' => 'wsTests.select',
+        'namespace' => 'App\\Http\\Controllers\\wsTest',
+        'prefix' => '/wsTests',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'wsTests.list' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'wsTests/list',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\wsTest\\WSController@list',
+        'controller' => 'App\\Http\\Controllers\\wsTest\\WSController@list',
+        'as' => 'wsTests.list',
+        'namespace' => 'App\\Http\\Controllers\\wsTest',
+        'prefix' => '/wsTests',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'wsTests.test' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'wsTests/test/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\wsTest\\WSController@test',
+        'controller' => 'App\\Http\\Controllers\\wsTest\\WSController@test',
+        'as' => 'wsTests.test',
+        'namespace' => 'App\\Http\\Controllers\\wsTest',
+        'prefix' => '/wsTests',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'wsTests.save' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'wsTests/save',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\wsTest\\WSController@save',
+        'controller' => 'App\\Http\\Controllers\\wsTest\\WSController@save',
+        'as' => 'wsTests.save',
+        'namespace' => 'App\\Http\\Controllers\\wsTest',
+        'prefix' => '/wsTests',
         'where' => 
         array (
         ),
@@ -4819,7 +5232,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ZTnz3IPVTacPQejm' => 
+    'generated::OBHLgiywRUHUe2Oi' => 
     array (
       'methods' => 
       array (
@@ -4839,7 +5252,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ZTnz3IPVTacPQejm',
+        'as' => 'generated::OBHLgiywRUHUe2Oi',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4928,7 +5341,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Gkl7WLRp2M2W5Wmp' => 
+    'generated::csTcQOiXo7rn391U' => 
     array (
       'methods' => 
       array (
@@ -4948,7 +5361,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Gkl7WLRp2M2W5Wmp',
+        'as' => 'generated::csTcQOiXo7rn391U',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5147,7 +5560,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::dzoIp2RwHsLdXYo1' => 
+    'generated::WTQ4wds4ig7CJJsI' => 
     array (
       'methods' => 
       array (
@@ -5167,7 +5580,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::dzoIp2RwHsLdXYo1',
+        'as' => 'generated::WTQ4wds4ig7CJJsI',
       ),
       'fallback' => false,
       'defaults' => 

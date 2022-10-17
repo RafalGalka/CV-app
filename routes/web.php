@@ -115,6 +115,41 @@ Route::middleware(['auth'])->group(function () {
             ->name('save');
     });
 
+    Route::group([
+        'prefix' => 'tests',
+        'namespace' => 'Test',
+        'as' => 'tests.'
+    ], function () {
+        Route::get('select/{protocol}', 'TestsController@select')
+            ->name('select');
+
+        Route::post('save', 'TestsController@save')
+            ->name('save');
+
+        Route::get('edit/{protocol}', 'TestsController@edit')
+            ->name('edit');
+    });
+
+    Route::group([
+        'prefix' => 'wsTests',
+        'namespace' => 'wsTest',
+        'as' => 'wsTests.'
+    ], function () {
+        Route::get('select', 'WSController@select')
+            ->name('select');
+
+        Route::get('list', 'WSController@list')
+            ->name('list');
+
+        Route::get('test/{id}', 'WSController@test')
+            ->name('test');
+
+        Route::get('save', 'WSController@save')
+            ->name('save');
+    });
+
+
+
     // PRÓBKI ODEBRANE OD ZLECENIODAWCY F-OD
     Route::group([
         'prefix' => 'sample',

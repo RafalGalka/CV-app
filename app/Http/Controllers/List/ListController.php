@@ -32,7 +32,7 @@ class ListController extends Controller
 
     public function POBList(): View
     {
-        $protocols = ProtocolPOB::where('collection', null)->orderBy('protocol_number', 'DESC')->paginate(20);
+        $protocols = ProtocolPOB::where('collection', "<", 8)->orWhere('collection', null)->orderBy('protocol_number', 'DESC')->paginate(20);
         //$protocols = ProtocolNumber::all();
         $invests = Invest::where('activ', true)->orderBy('short_name')->get();
         return view('lists.POBList', ['protocols' => $protocols, 'invests' => $invests]);

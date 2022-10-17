@@ -16,7 +16,7 @@
 
 <div class="sb-sidenav-menu-heading">Badania laboratoryjne</div>
 <nav class="sb-sidenav-menu-nested">
-    <a class="nav-link" href=#>Wytrzymałość betonu</a>
+    <a class="nav-link" href="{{ route('wsTests.select') }}">Wytrzymałość betonu</a>
     <a class="nav-link" href=#>Wytrzymałość beleczek</a>
 </nav>
 
