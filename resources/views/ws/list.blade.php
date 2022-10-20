@@ -36,7 +36,7 @@
                                 <td>{{ $sample->protocol_number }} / {{ $sample->sample_nr }}</td>
                                 <td>{{ $sample->test_age }}</td>
                                 <td>@if ($sample->tested == 0)
-                                    <a href="{{ route('wsTests.test', ['id' => $sample->id])}}"> Do badania!
+                                    <a href="{{ route('wsTests.size', ['id' => $sample->id])}}"> Do badania!
                                     @else
                                         <a href="#"> Próbka przebadana
                                 @endif

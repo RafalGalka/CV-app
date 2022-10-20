@@ -141,10 +141,16 @@ Route::middleware(['auth'])->group(function () {
         Route::get('list', 'WSController@list')
             ->name('list');
 
+        Route::get('size/{id}', 'WSController@size')
+            ->name('size');
+
+        Route::post('saveSize', 'WSController@saveSize')
+            ->name('saveSize');
+
         Route::get('test/{id}', 'WSController@test')
             ->name('test');
 
-        Route::get('save', 'WSController@save')
+        Route::post('save', 'WSController@save')
             ->name('save');
     });
 

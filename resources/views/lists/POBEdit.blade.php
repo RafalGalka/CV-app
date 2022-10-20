@@ -42,7 +42,7 @@
 
                         <div class="form-group col-md-2">
                             <label for="air_temp">Temp. pow.</label>
-                            <input type="float" class="form-control @error('air_temp') is-invalid @enderror" id="air_temp" value="{{ old('air_temp', $pobID->air_temp) }}"
+                            <input type="number" step="0.1" class="form-control @error('air_temp') is-invalid @enderror" id="air_temp" value="{{ old('air_temp', $pobID->air_temp) }}"
                                 name="air_temp" />
                         </div>
                         @error('air_temp')

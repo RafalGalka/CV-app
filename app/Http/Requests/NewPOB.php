@@ -26,7 +26,7 @@ class NewPOB extends FormRequest
         return [
             'date' => ['date', 'required', 'before_or_equal:today'],
             'drive' => ['boolean'],
-            'air_temp' => ['numeric', 'nullable', 'max:70', 'min:-30', 'regex:/^(?:[1-9]\d+|\d)(?:\.\d\d|\.\d)?$/'],
+            'air_temp' => ['numeric', 'nullable', 'max:70', 'min:-30', 'regex:/^(?:[1-9]\d+|\d)(?:\.\d)?$/'],
             'recipe' => ['string'],
             'compression_class' => ['string', 'max:30'],
             'rate_time' => ['integer', 'nullable', 'max:90', 'min:1'],
@@ -57,7 +57,7 @@ class NewPOB extends FormRequest
         return [
             'date.require' => 'Wymagane wpisanie daty pobrania',
             'date.before_or_equal' => 'Data nie może być z przyszłości',
-            'air_temp.regex' => 'Liczba do 2 miejsc dziesiętnych oddzielonych kropką',
+            'air_temp.regex' => 'Liczba do 1 miejsca dziesiętnego oddzielonego kropką',
             'compression_class.max' => 'Maksymalna ilość znaków to: :max',
             'compression_class.string' => 'Wybierz recepturę z klasą wytrzmałości',
             'waterproof.max' => 'Maksymalna ilość znaków to: :max',

@@ -61,7 +61,7 @@
 
                         <div class="form-group col-sd-2">
                             <label for="air_temp">Temp. powietrza</label>
-                            <input type="float" class="form-control @error('air_temp') is-invalid @enderror" id="air_temp"
+                            <input type="number" step="0.1" class="form-control @error('air_temp') is-invalid @enderror" id="air_temp"
                                 name="air_temp" value="{{ old('air_temp') }}" autocomplete="off"/>
                         </div>
                         @error('air_temp')

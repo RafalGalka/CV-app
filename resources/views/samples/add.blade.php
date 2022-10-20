@@ -54,7 +54,7 @@
                             @enderror
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="init">Godzina pobr.</label>
+                            <label for="hour">Godzina pobr.</label>
                             <input type="time" class="form-control @error('hour') is-invalid @enderror"
                                 id="hour" name="hour" value="{{ old('hour', $time) }}" />
                             @error('hour')
@@ -82,7 +82,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label for="temperature">Temp. miesz.[&#176;C]</label>
-                            <input type="float" class="form-control @error('temperature') is-invalid @enderror"
+                            <input type="number" step="0.1" class="form-control @error('temperature') is-invalid @enderror"
                                 id="temperature" name="temperature" autocomplete="off" value="{{ old('temperature') }}" />
                             @error('temperature')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -93,7 +93,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-3">
                             <label for="air_content">Zaw. powietrza[%]</label>
-                            <input type="float" class="form-control @error('air_content') is-invalid @enderror"
+                            <input type="number" step="0.1" class="form-control @error('air_content') is-invalid @enderror"
                                 id="air_content" name="air_content" autocomplete="off" value="{{ old('air_content') }}" />
                             @error('air_content')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -101,7 +101,7 @@
                         </div>
                         <div class="form-group col-md-3">
                             <label for="reinforcement_volume">Ilość zbr.rozpr.[kg/m&sup3;]</label>
-                            <input type="float" class="form-control @error('reinforcement_volume') is-invalid @enderror"
+                            <input type="number" step="0.01" class="form-control @error('reinforcement_volume') is-invalid @enderror"
                                 id="reinforcement_volume" name="reinforcement_volume" autocomplete="off" value="{{ old('reinforcement_volume') }}"/>
                             @error('reinforcement_volume')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>

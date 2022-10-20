@@ -91,7 +91,7 @@
                                         </td>
 
                                     </tr>
-                                    <input type="max" class="form-control @error('protocol_nr') is-invalid @enderror"
+                                    <input type="number" class="form-control @error('protocol_nr') is-invalid @enderror"
                             id="max" name="max" value="{{ $nrr }}" hidden />
                                 @endfor
                             @endforeach
