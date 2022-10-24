@@ -16,6 +16,9 @@
             @endif
 
             <div class="form-group">
+
+                <div> @if ($sample->sample_type == 1) <b>x, y, z od 145,50 do 154,50</b> @elseif ($sample->sample_type == 2) <b>x, y, z od 97,00 do 103,00</b> @else <b>W uwagach wpisać typ prób i wymiary</b> @endif </div>
+                <div> Długość <b>x</b> od strony zacieranej do spodu próbki</div>
                 <form action="{{ route('wsTests.saveSize') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
@@ -226,12 +229,16 @@
                         </div>
                     </div>
 
-                            <input type="number" class="form-control @error('id') is-invalid @enderror" id="id"
-                                name="id" readonly hidden value={{$sample->id}} />
-                            @error('id')
+                        <div class="form-row">
+                            <input type="number" step="0.01" class="form-control @error('size') is-invalid @enderror" id="size"
+                                name="size" readonly hidden value={{$size}} />
+                            @error('size')
                                 <div class="invalid-feedback d-block">{{ $message }}</div>
                             @enderror
 
+                            <input type="number" class="form-control @error('sample_id') is-invalid @enderror" id="sample_id"
+                            name="sample_id" readonly hidden value={{$sample->id}} />
+                        </div>
 
             </div>
             <button type="submit" class="btn btn-primary">Zapisz wymiary próbki i zbadaj</button>

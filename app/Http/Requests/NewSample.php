@@ -34,6 +34,7 @@ class NewSample extends FormRequest
             'air_content' => ['nullable', 'numeric', 'max:20', 'min:0', 'regex:/^(?:[1-9]\d+|\d)(?:\.\d)?$/'],
             'reinforcement_volume' => ['nullable', 'numeric', 'max:100', 'min:0', 'regex:/^(?:[1-9]\d+|\d)(?:\.\d\d|\.\d)?$/'],
             'my_comment' => ['nullable', 'string', 'max:300'],
+            'sample_type' => ['required', 'integer']
         ];
     }
 

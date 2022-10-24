@@ -87,6 +87,7 @@ class SamplesController extends Controller
         $sample->air_content = $request->air_content;
         $sample->reinforcement_volume = $request->reinforcement_volume;
         $sample->my_comment = $request->my_comment;
+        $sample->sample_type = $request->sample_type;
 
         $sample->save();
 

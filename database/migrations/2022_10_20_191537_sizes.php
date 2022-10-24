@@ -15,8 +15,7 @@ class Sizes extends Migration
     {
         Schema::create('sizes', function (Blueprint $table) {
             $table->id();
-            $table->integer('protocol_number');
-            $table->tinyInteger('sample_number')->nullable();
+            $table->integer('sample_id');
             $table->decimal('x1');
             $table->decimal('x2');
             $table->decimal('x3');

@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Size extends Model
 {
+    public $timestamps = false;
     protected $table = 'sizes';
     use HasFactory;
+
+    public function sample()
+    {
+        return $this->hasOne(WSTest::class, 'id', 'sample_id');
+    }
 }

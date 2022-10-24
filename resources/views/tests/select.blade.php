@@ -58,8 +58,9 @@
                                         </td>
                                         <td> @if(isset($sample->wz_number)) {{ $sample->wz_number }} @else - @endif </td>
                                         <td> @if(isset($sample->consistency)) {{ $sample->consistency }} @else - @endif </td>
-                                        <td> @if(isset($sample->sample_type)) @if ($sample->sample_type == 1) 150x150x150 @elseif ($sample->sample_type == 2) 100x100x100 @else inne @endif @else - @endif </td>
+                                        <td> @if(isset($sample->sample_type)) @if ($sample->sample_type == 1) 150x150x150 @elseif ($sample->sample_type == 2) 100x100x100 @else inny @endif @else - @endif </td>
                                         <td>
+                                            <input name="sample_type" value={{ $sample->sample_type }} readonly hidden>
                                             <select class="form-control @error('type') is-invalid @enderror" id="type{{$nrr}}" name="type{{$nrr}}"
                                             aria-label=".form-select-lg example">
                                                 <option value=0 {{ old('type') == 0 ? 'selected' : ''}} ></option>

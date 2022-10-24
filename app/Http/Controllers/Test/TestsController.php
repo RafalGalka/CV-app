@@ -38,6 +38,7 @@ class TestsController extends Controller
                 $sample->protocol_number = $request->protocol_nr;
                 $sample->sample_nr = $i;
                 $sample->test_age = date_format($date, "Y-m-d");
+                $sample->sample_type = $request->sample_type;
 
                 $sample->save();
             }

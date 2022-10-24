@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card mt-3">
-        <h5 class="card-header">{{ $user->name }} - próbka nr {{ $sample->protocol_number }} / {{ $sample->sample_nr }}</h5>
+        <h5 class="card-header">{{ $user->name }} - próbka nr {{ $sample->sample->protocol_number }} / {{ $sample->sample->sample_nr }}</h5>
         <div class="card-body">
 
             @if ($errors->any())
@@ -18,8 +18,38 @@
             <div class="form-group">
                 <form action="{{ route('wsTests.save') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-row">
 
+                    <div class="form-row">
+                        <div class="form-group col-sd-2">
+                            <label for="x">x [mm]</label>
+                            <input type="number" class="form-control @error('x') is-invalid @enderror" id="x"
+                                name="x" readonly value="{{ $x }}" />
+                        </div>
+                        @error('x')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
+
+                        <div class="form-group col-sd-2">
+                            <label for="y">y [mm]</label>
+                            <input type="number" class="form-control @error('y') is-invalid @enderror" id="y"
+                                name="y" readonly value="{{ $y }}" />
+                        </div>
+                        @error('y')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
+
+                        <div class="form-group col-sd-2">
+                            <label for="z">z [mm]</label>
+                            <input type="number" class="form-control @error('y') is-invalid @enderror" id="y"
+                                name="z" readonly value="{{ $z }}" />
+                        </div>
+                        @error('z')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+
+                    <div class="form-row">
                         <div class="form-group col-sd-2">
                             <label for="date">Data badania</label>
                             <input type="date" class="form-control @error('date') is-invalid @enderror" id="date"
@@ -29,7 +59,7 @@
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
 
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-sd-2">
                             <label for="time">Godzina badania</label>
                             <input type="time" class="form-control @error('time') is-invalid @enderror"
                                 id="time" name="time" value="{{ old('time', $time) }}" />
